@@ -9,248 +9,224 @@ import javax.swing.*;
 import java.util.*;
 
 import swtkal.client.Client;
-import swtkal.exceptions.PersonException;
-import swtkal.swing.elements.person.LoginDialog;
+import swtkal.domain.Person;
 
-public class SwingClient extends Client implements ActionListener
-{
-	private static final long serialVersionUID = -3226733188150527572L;
+public class SwingClient extends Client implements ActionListener {
+    private static final long serialVersionUID = -3226733188150527572L;
 
-	public static void main(String[] args)
-	{
-		new SwingClient().frame.setVisible(true);
-	}
+    public static void main(String[] args) {
+        new SwingClient().frame.setVisible(true);
+    }
 
-	protected JFrame frame;
-	protected final int INITIAL_WIDTH  = 850;
-	protected final int INITIAL_HEIGHT = 700;
-	protected JLayeredPane layer = new JLayeredPane();
-	protected JLabel statusLabel;
-	protected Tagesansicht tagesansicht;
+    protected JFrame frame;
+    protected final int INITIAL_WIDTH = 850;
+    protected final int INITIAL_HEIGHT = 700;
+    protected JLayeredPane layer = new JLayeredPane();
+    protected JLabel statusLabel;
+    protected Tagesansicht tagesansicht;
 
-   // cache for internal frames
-   protected Hashtable<String, JInternalFrame> frames = new Hashtable<String, JInternalFrame>();
+    // cache for internal frames
+    protected Hashtable<String, JInternalFrame> frames = new Hashtable<String, JInternalFrame>();
 
-	protected SwingClient()
-	{
-		server = swtkal.server.Server.getServer();
-		server.startServer();
-		
-		// Look & Feel
-		try
-		{
+    protected SwingClient() {
+        server = swtkal.server.Server.getServer();
+        server.startServer();
+
+        // Look & Feel
+        try {
 //			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());			// *** use this for MacOS
-		}
-		catch (Exception exc)
-		{
-			System.err.println("Error loading L&F: " + exc);
-		}
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());            // *** use this for MacOS
+        } catch (Exception exc) {
+            System.err.println("Error loading L&F: " + exc);
+        }
 
-		// connect
-		try
-		{
-			frame = new JFrame();
-			LoginDialog connect = new LoginDialog(frame, server);
-			user = connect.getUser();
-		}
-		catch (PersonException e)
-		{
-			e.printStackTrace();
-			server.stopServer();
-			System.exit(0);
-		}
-				
-		frame.setSize(INITIAL_WIDTH, INITIAL_HEIGHT);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		frame.setLocation(screenSize.width/2 - INITIAL_WIDTH/2,
-				      screenSize.height/2 - INITIAL_HEIGHT/2);
-		frame.setTitle("SWTKal-SwingClient");
+        // connect
 
-		createMenu();
-		createContent();
+        frame = new JFrame();
+        user = new Person();
 
-		frame.addWindowListener(new WindowEventHandler());
-	}
+        frame.setSize(INITIAL_WIDTH, INITIAL_HEIGHT);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setLocation(screenSize.width / 2 - INITIAL_WIDTH / 2,
+                screenSize.height / 2 - INITIAL_HEIGHT / 2);
+        frame.setTitle("SWTKal-SwingClient");
 
-	protected void createMenu()
-	{
-		JMenuBar mbar = new JMenuBar();
+        createMenu();
+        createContent();
 
-		JMenu mEintraege = new JMenu("Eintragen");
-		mEintraege.setMnemonic('E');
-		mbar.add(mEintraege);
+        frame.addWindowListener(new WindowEventHandler());
+    }
 
-			JMenuItem iTermin = new JMenuItem("Termin eintragen");
-			iTermin.setMnemonic('T');
-			iTermin.setActionCommand("Termin");
-			iTermin.addActionListener(this);
-			mEintraege.add(iTermin);
-	
-			JMenuItem iToDo = new JMenuItem("ToDo eintragen");
-			iToDo.setMnemonic('D');
-			iToDo.setActionCommand("ToDo");
-			iToDo.setEnabled(false);
-			iToDo.addActionListener(this);
-			mEintraege.add(iToDo);
-	
-			JMenuItem iClear = new JMenuItem("Datensäuberung");
-			iClear.setMnemonic('S');
-			iClear.setActionCommand("Löschen");
-			iClear.setEnabled(false);
-			iClear.addActionListener(this);
-			mEintraege.add(iClear);
+    protected void createMenu() {
+        JMenuBar mbar = new JMenuBar();
 
-		JMenu mAnsehen = new JMenu("Ansehen");
-		mAnsehen.setMnemonic('A');
-		mbar.add(mAnsehen);
+        JMenu mEintraege = new JMenu("Eintragen");
+        mEintraege.setMnemonic('E');
+        mbar.add(mEintraege);
 
-			JMenuItem iTag = new JMenuItem("Tag");
-			iTag.setMnemonic('T');
-			iTag.setActionCommand("Tag");
-			iTag.addActionListener(this);
-			mAnsehen.add(iTag);
+        JMenuItem iTermin = new JMenuItem("Termin eintragen");
+        iTermin.setMnemonic('T');
+        iTermin.setActionCommand("Termin");
+        iTermin.addActionListener(this);
+        mEintraege.add(iTermin);
 
-			JMenuItem iWoche = new JMenuItem("Woche");
-			iWoche.setMnemonic('W');
-			iWoche.setActionCommand("Woche");
-			iWoche.setEnabled(false);
-			iWoche.addActionListener(this);
-			mAnsehen.add(iWoche);
+        JMenuItem iToDo = new JMenuItem("ToDo eintragen");
+        iToDo.setMnemonic('D');
+        iToDo.setActionCommand("ToDo");
+        iToDo.setEnabled(false);
+        iToDo.addActionListener(this);
+        mEintraege.add(iToDo);
 
-			JMenuItem iMonat = new JMenuItem("Monat");
-			iMonat.setMnemonic('M');
-			iMonat.setActionCommand("Monat");
-			iMonat.setEnabled(false);
-			iMonat.addActionListener(this);
-			mAnsehen.add(iMonat);
+        JMenuItem iClear = new JMenuItem("Datensäuberung");
+        iClear.setMnemonic('S');
+        iClear.setActionCommand("Löschen");
+        iClear.setEnabled(false);
+        iClear.addActionListener(this);
+        mEintraege.add(iClear);
 
-			JMenuItem iJahr = new JMenuItem("Jahr");
-			iJahr.setMnemonic('J');
-			iJahr.setActionCommand("Jahr");
-			iJahr.setEnabled(false);
-			iJahr.addActionListener(this);
-			mAnsehen.add(iJahr);
+        JMenu mAnsehen = new JMenu("Ansehen");
+        mAnsehen.setMnemonic('A');
+        mbar.add(mAnsehen);
 
-		JMenu mVerwalten = new JMenu("Verwalten");
-		mVerwalten.setMnemonic('V');
-		mbar.add(mVerwalten);
+        JMenuItem iTag = new JMenuItem("Tag");
+        iTag.setMnemonic('T');
+        iTag.setActionCommand("Tag");
+        iTag.addActionListener(this);
+        mAnsehen.add(iTag);
 
-			JMenuItem iPerson = new JMenuItem("Persönliche Daten");
-			iPerson.setMnemonic('P');
-			iPerson.setActionCommand("User");
-			iPerson.setEnabled(false);
-			iPerson.addActionListener(this);
-			mVerwalten.add(iPerson);
+        JMenuItem iWoche = new JMenuItem("Woche");
+        iWoche.setMnemonic('W');
+        iWoche.setActionCommand("Woche");
+        iWoche.setEnabled(false);
+        iWoche.addActionListener(this);
+        mAnsehen.add(iWoche);
 
-			JMenuItem iTypen = new JMenuItem("Eintragstypen");
-			iTypen.setMnemonic('E');
-			iTypen.setActionCommand("Typen");
-			iTypen.setEnabled(false);
-			iTypen.addActionListener(this);
-			mVerwalten.add(iTypen);
+        JMenuItem iMonat = new JMenuItem("Monat");
+        iMonat.setMnemonic('M');
+        iMonat.setActionCommand("Monat");
+        iMonat.setEnabled(false);
+        iMonat.addActionListener(this);
+        mAnsehen.add(iMonat);
 
-			JMenuItem iGruppen = new JMenuItem("Gruppen");
-			iGruppen.setMnemonic('G');
-			iGruppen.setActionCommand("Gruppen");
-			iGruppen.setEnabled(false);
-			iGruppen.addActionListener(this);
-			mVerwalten.add(iGruppen);
+        JMenuItem iJahr = new JMenuItem("Jahr");
+        iJahr.setMnemonic('J');
+        iJahr.setActionCommand("Jahr");
+        iJahr.setEnabled(false);
+        iJahr.addActionListener(this);
+        mAnsehen.add(iJahr);
 
-			JMenuItem iRechte = new JMenuItem("Berechtigungen");
-			iRechte.setMnemonic('B');
-			iRechte.setActionCommand("Rechte");
-			iRechte.setEnabled(false);
-			iRechte.addActionListener(this);
-			mVerwalten.add(iRechte);
+        JMenu mVerwalten = new JMenu("Verwalten");
+        mVerwalten.setMnemonic('V');
+        mbar.add(mVerwalten);
 
-		JMenu mInfo = new JMenu("Info");
-		mInfo.setMnemonic('I');
-		mbar.add(mInfo);
+        JMenuItem iPerson = new JMenuItem("Persönliche Daten");
+        iPerson.setMnemonic('P');
+        iPerson.setActionCommand("User");
+        iPerson.setEnabled(false);
+        iPerson.addActionListener(this);
+        mVerwalten.add(iPerson);
 
-			JMenuItem iRechtsInfo = new JMenuItem("Erhaltene Rechte");
-			iRechtsInfo.setMnemonic('E');
-			iRechtsInfo.setActionCommand("RechtsInfo");
-			iRechtsInfo.setEnabled(false);
-			iRechtsInfo.addActionListener(this);
-			mInfo.add(iRechtsInfo);
+        JMenuItem iTypen = new JMenuItem("Eintragstypen");
+        iTypen.setMnemonic('E');
+        iTypen.setActionCommand("Typen");
+        iTypen.setEnabled(false);
+        iTypen.addActionListener(this);
+        mVerwalten.add(iTypen);
 
-			JMenuItem iNachrichten = new JMenuItem("Nachrichten");
-			iNachrichten.setMnemonic('N');
-			iNachrichten.setActionCommand("Nachrichten");
-			iNachrichten.setEnabled(false);
-			iNachrichten.addActionListener(this);
-			mInfo.add(iNachrichten);
+        JMenuItem iGruppen = new JMenuItem("Gruppen");
+        iGruppen.setMnemonic('G');
+        iGruppen.setActionCommand("Gruppen");
+        iGruppen.setEnabled(false);
+        iGruppen.addActionListener(this);
+        mVerwalten.add(iGruppen);
 
-			mInfo.addSeparator();
+        JMenuItem iRechte = new JMenuItem("Berechtigungen");
+        iRechte.setMnemonic('B');
+        iRechte.setActionCommand("Rechte");
+        iRechte.setEnabled(false);
+        iRechte.addActionListener(this);
+        mVerwalten.add(iRechte);
 
-			JMenuItem iInfo = new JMenuItem("Info...");
-			iInfo.setMnemonic('o');
-			iInfo.setActionCommand("About");
-			iInfo.setEnabled(false);
-			iInfo.addActionListener(this);
-			mInfo.add(iInfo);
-			
-		JMenu mExit = new JMenu("Beenden");
-		mExit.setMnemonic('B');
-		mbar.add(mExit);
+        JMenu mInfo = new JMenu("Info");
+        mInfo.setMnemonic('I');
+        mbar.add(mInfo);
 
-			JMenuItem iExit = new JMenuItem("Beenden");
-			iExit.setMnemonic('b');
-			iExit.setActionCommand("Exit");
-			iExit.addActionListener(this);
-			mExit.add(iExit);
+        JMenuItem iRechtsInfo = new JMenuItem("Erhaltene Rechte");
+        iRechtsInfo.setMnemonic('E');
+        iRechtsInfo.setActionCommand("RechtsInfo");
+        iRechtsInfo.setEnabled(false);
+        iRechtsInfo.addActionListener(this);
+        mInfo.add(iRechtsInfo);
 
-			frame.getRootPane().setJMenuBar(mbar);
-	}
+        JMenuItem iNachrichten = new JMenuItem("Nachrichten");
+        iNachrichten.setMnemonic('N');
+        iNachrichten.setActionCommand("Nachrichten");
+        iNachrichten.setEnabled(false);
+        iNachrichten.addActionListener(this);
+        mInfo.add(iNachrichten);
 
-	protected void createContent()
-	{
-		JPanel contentPane = (JPanel) frame.getContentPane();
-		contentPane.setLayout(new BorderLayout());
-		layer.setBackground(contentPane.getBackground());
-		contentPane.add("Center", layer);
+        mInfo.addSeparator();
 
-		// DefaultWindow // DefaultWindow // DefaultWindow // DefaultWindow //
-		// DefaultWindow
-		tagesansicht = new Tagesansicht(frame, statusLabel, this, new Date());
-		JInternalFrame gui = tagesansicht.getGUI();
-		gui.setVisible(true);
-		frames.put("Tag", gui);
+        JMenuItem iInfo = new JMenuItem("Info...");
+        iInfo.setMnemonic('o');
+        iInfo.setActionCommand("About");
+        iInfo.setEnabled(false);
+        iInfo.addActionListener(this);
+        mInfo.add(iInfo);
+
+        JMenu mExit = new JMenu("Beenden");
+        mExit.setMnemonic('B');
+        mbar.add(mExit);
+
+        JMenuItem iExit = new JMenuItem("Beenden");
+        iExit.setMnemonic('b');
+        iExit.setActionCommand("Exit");
+        iExit.addActionListener(this);
+        mExit.add(iExit);
+
+        frame.getRootPane().setJMenuBar(mbar);
+    }
+
+    protected void createContent() {
+        JPanel contentPane = (JPanel) frame.getContentPane();
+        contentPane.setLayout(new BorderLayout());
+        layer.setBackground(contentPane.getBackground());
+        contentPane.add("Center", layer);
+
+        // DefaultWindow // DefaultWindow // DefaultWindow // DefaultWindow //
+        // DefaultWindow
+        tagesansicht = new Tagesansicht(frame, statusLabel, this, new Date());
+        JInternalFrame gui = tagesansicht.getGUI();
+        gui.setVisible(true);
+        frames.put("Tag", gui);
 
 //		// Listener
 //		listener.addObserver(tagesansicht);
 
-		try
-		{
-			gui.setSelected(true);
-		}
-		catch (java.beans.PropertyVetoException ex)
-		{}
+        try {
+            gui.setSelected(true);
+        } catch (java.beans.PropertyVetoException ex) {
+        }
 
-		layer.add(gui, 0);
-	}
-		
-	public void actionPerformed(ActionEvent e)
-	{
-		String c = e.getActionCommand();
+        layer.add(gui, 0);
+    }
 
-		if (e.getSource().getClass() == JMenuItem.class)
-		{
-			if (c.equals("Termin"))
-			{
-				neuerTermin();
-			}
+    public void actionPerformed(ActionEvent e) {
+        String c = e.getActionCommand();
+
+        if (e.getSource().getClass() == JMenuItem.class) {
+            if (c.equals("Termin")) {
+                neuerTermin();
+            }
 //			else if (c.equals("ToDo"))
 //			{
 //			}
 //			else if (c.equals("Löschen"))
 //			{
 //			}
-			else if (c.equals("Tag"))
-			{
-				tagesAnsicht();
-			}
+            else if (c.equals("Tag")) {
+                tagesAnsicht();
+            }
 //			else if (c.equals("Woche"))
 //			{
 //			}
@@ -260,63 +236,55 @@ public class SwingClient extends Client implements ActionListener
 //			else if (c.equals("Jahr"))
 //			{
 //			}
-			else if (c.equals("Exit"))
-			{
-				server.stopServer();
-				System.exit(0);
-			}
-		}
+            else if (c.equals("Exit")) {
+                server.stopServer();
+                System.exit(0);
+            }
+        }
 
-		if (c.equals("Tagesansicht"))			// neuer Termin erzeugt oder Termin geaendert
-		{												// deshalb Tagesansicht aktualisieren
-			tagesansicht.updateEintraege();
-		}
-	}
-	
-	protected void neuerTermin()
-	{ 
-		EditTerminControl termin = new EditTerminControl(frame, this, tagesansicht.bgnAnsicht);
-		JInternalFrame gui = termin.getGUI();
-		gui.setVisible(true);
-		layer.add(gui, 0);
-	}
+        if (c.equals("Tagesansicht"))            // neuer Termin erzeugt oder Termin geaendert
+        {                                                // deshalb Tagesansicht aktualisieren
+            tagesansicht.updateEintraege();
+        }
+    }
 
-	protected void tagesAnsicht()
-	{
-		if (!frames.containsKey("Tag"))
-		{
-			tagesansicht = new Tagesansicht(frame, statusLabel, this, new Date());
-			JInternalFrame gui = tagesansicht.getGUI();
-			frames.put("Tag", gui);
+    protected void neuerTermin() {
+        EditTerminControl termin = new EditTerminControl(frame, this, tagesansicht.bgnAnsicht);
+        JInternalFrame gui = termin.getGUI();
+        gui.setVisible(true);
+        layer.add(gui, 0);
+    }
 
-			// // Listener
-			// listener.addObserver(tagesansicht);
-		}
+    protected void tagesAnsicht() {
+        if (!frames.containsKey("Tag")) {
+            tagesansicht = new Tagesansicht(frame, statusLabel, this, new Date());
+            JInternalFrame gui = tagesansicht.getGUI();
+            frames.put("Tag", gui);
 
-		JInternalFrame gui = frames.get("Tag");
-		gui.setVisible(true);
-		try
-		{
-			if (gui.isIcon())
-				gui.setIcon(false);
-			gui.setSelected(true);
-		}
-		catch (java.beans.PropertyVetoException ex)
-		{}
+            // // Listener
+            // listener.addObserver(tagesansicht);
+        }
 
-		layer.add(gui, 0);
-	}
+        JInternalFrame gui = frames.get("Tag");
+        gui.setVisible(true);
+        try {
+            if (gui.isIcon())
+                gui.setIcon(false);
+            gui.setSelected(true);
+        } catch (java.beans.PropertyVetoException ex) {
+        }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+        layer.add(gui, 0);
+    }
 
-	class WindowEventHandler extends WindowAdapter
-	{
-		public void windowClosing(WindowEvent e)
-		{
-			server.stopServer();
-			System.exit(0);
-		}
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    class WindowEventHandler extends WindowAdapter {
+        public void windowClosing(WindowEvent e) {
+            server.stopServer();
+            System.exit(0);
+        }
+    }
 }
