@@ -19,7 +19,9 @@ package swtkal.domain;
  */
 public class Eintrag
 {
-	protected int    id=0;			// internal id to uniquely identify
+	static private int count = 0;
+
+	protected int    id=count++;			// internal id to uniquely identify
 	                                // each Eintrag object within the server
 	protected String kurzText = "", langText = "";	
 	protected Person besitzer;
