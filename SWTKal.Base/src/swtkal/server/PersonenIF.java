@@ -77,7 +77,9 @@ public interface PersonenIF
 	 * @return the corresponding person object
 	 * @throws PersonException
 	 */
-	public Person authenticatePerson(String kuerzel, String passwort) throws PersonException;
+	default public Person authenticatePerson(String kuerzel, String passwort) {
+		return new Person();
+	};
 	
 	/** This method retrieves a person by its kuerzel property.
 	 *

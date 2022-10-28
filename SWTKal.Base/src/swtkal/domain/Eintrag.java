@@ -1,9 +1,9 @@
 /*****************************************************************************************************
  * 	Project:			SWTKal.Base
- * 	
+ *
  *  creation date:		01.08.2007
  *
- * 
+ *
  *****************************************************************************************************
  *	date			| 	author		| 	reason for change
  *****************************************************************************************************
@@ -14,69 +14,59 @@ package swtkal.domain;
 
 /*****************************************************************************************************
  * Superclass with common properties for Termin and ToDo
- * 
+ *
  * @author swtUser
  */
-public class Eintrag
-{
-	protected int    id=0;			// internal id to uniquely identify
-	                                // each Eintrag object within the server
-	protected String kurzText = "", langText = "";	
-	protected Person besitzer;
+public class Eintrag {
+    static private int count = 0;
 
-	public Eintrag()
-	{
-	}
-	
-	public Eintrag(Person b, String k, String l)
-	{
-		besitzer = b;
-		kurzText = k;
-		langText = l;
-	}
+    protected int id = count++;            // internal id to uniquely identify
+    // each Eintrag object within the server
+    protected String kurzText = "", langText = "";
+    protected Person besitzer;
 
-	public Eintrag(Person b)
-	{
-		besitzer = b;
-	}
+    public Eintrag() {
+    }
 
-	public int getId()
-	{
-		return id;
-	}
+    public Eintrag(Person b, String k, String l) {
+        besitzer = b;
+        kurzText = k;
+        langText = l;
+    }
 
-	public void setId(int id)
-	{
-		this.id = id;
-	}
+    public Eintrag(Person b) {
+        besitzer = b;
+    }
 
-	public String getKurzText()
-	{
-		return kurzText;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setKurzText(String k)
-	{
-		kurzText = k;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getLangText()
-	{
-		return langText;
-	}
+    public String getKurzText() {
+        return kurzText;
+    }
 
-	public void setLangText(String l)
-	{
-		langText = l;
-	}
+    public void setKurzText(String k) {
+        kurzText = k;
+    }
 
-	public Person getBesitzer()
-	{
-		return besitzer;
-	}
+    public String getLangText() {
+        return langText;
+    }
 
-	public void setBesitzer(Person p)
-	{
-		besitzer = p;
-	}
+    public void setLangText(String l) {
+        langText = l;
+    }
+
+    public Person getBesitzer() {
+        return besitzer;
+    }
+
+    public void setBesitzer(Person p) {
+        besitzer = p;
+    }
 }

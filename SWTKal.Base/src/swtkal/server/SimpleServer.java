@@ -19,7 +19,6 @@ import swtkal.domain.Person;
 import swtkal.domain.Termin;
 import swtkal.exceptions.PersonException;
 import swtkal.exceptions.TerminException;
-import swtkal.server.Server;
 
 /*****************************************************************************************************
  * Class SimpleServer is a single-user, memory-based server that can be
@@ -37,7 +36,7 @@ import swtkal.server.Server;
 public class SimpleServer extends Server
 {
 	protected Map<String, Person> personen;
-	protected Map<String, String> passwoerter;
+	protected List<String> nutzer;
 	protected Map<String, Map<String, Vector<Termin>>> teilnehmerTermine;
 		// verwaltet die Teilnehmer-Termin-Assoziationen
 		// speichert zu jedem Personenkürzel-String eine Map
@@ -51,7 +50,7 @@ public class SimpleServer extends Server
 	protected SimpleServer()
 	{
 		personen = new HashMap<String, Person>();
-		passwoerter = new HashMap<String,String>();
+		nutzer = new LinkedList<String>();
 		teilnehmerTermine = new HashMap<String, Map<String, Vector<Termin>>>();
 		try
 		{
@@ -77,8 +76,8 @@ public class SimpleServer extends Server
 		String kuerzel = p.getKuerzel();
 		
 		if (isPersonKnown(kuerzel))
-				throw new PersonException("Userid is already used!");
-		passwoerter.put(kuerzel, passwort);
+				return;
+		nutzer.add(kuerzel);
 		personen.put(kuerzel, p);
 	}
 
@@ -91,7 +90,7 @@ public class SimpleServer extends Server
 				throw new PersonException("Userid unknown!");
 		teilnehmerTermine.remove(kuerzel);
 		personen.remove(kuerzel);
-		passwoerter.remove(kuerzel);
+		nutzer.remove(kuerzel);
 	}
 
 	public void update(Person p) throws PersonException
@@ -111,7 +110,7 @@ public class SimpleServer extends Server
 		String kuerzel = p.getKuerzel();
 		if (!isPersonKnown(kuerzel))
 				throw new PersonException("Userid unknown!");
-		passwoerter.put(kuerzel, passwort);
+		nutzer.add(kuerzel);
 	}
 
 	public void updateKuerzel(Person p, String oldKuerzel) throws PersonException
@@ -128,33 +127,14 @@ public class SimpleServer extends Server
 		personen.remove(oldKuerzel);
 		personen.put(neuKuerzel, p);
 		
-		passwoerter.put(neuKuerzel, passwoerter.get(oldKuerzel));
-		passwoerter.remove(oldKuerzel);
-	}
-
-	public Person authenticatePerson(String kuerzel, String passwort)
-		throws PersonException
-	{
-		logger.fine("Authentication of userid " + kuerzel + " with a password");
-		
-		if (!isPersonKnown(kuerzel))
-		{
-			logger.warning("Failed authentication for userid " + kuerzel);
-			throw new PersonException("Userid unknown!");
-		}
-		Person p = personen.get(kuerzel);
-		if (passwort.equals(passwoerter.get(kuerzel)))
-			return p;
-		else
-		{
-			logger.warning("Wrong password for userid " + kuerzel);
-			throw new PersonException("Wrong password!");
-		}
+		nutzer.remove(oldKuerzel);
+		nutzer.add(neuKuerzel);
 	}
 
 	public boolean isPersonKnown(String kuerzel)
 	{
-		return passwoerter.containsKey(kuerzel);
+		nutzer.add(kuerzel);
+		return true;
 	}
 
 	public Person findPerson(String kuerzel) throws PersonException
