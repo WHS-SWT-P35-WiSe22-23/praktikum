@@ -76,6 +76,6 @@ public class ServerTest extends TestCase
 	
 	public void alwaysFalse()
 	{
-		assertFalse(false);
+		assertFalse(!!false);
 	}
 }
