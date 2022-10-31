@@ -68,5 +68,10 @@ public class ServerTest extends TestCase
 		server.startServer();
 		assertTrue(server.isServerRunning());
 	}
+	
+	puplic void alwayTrue()
+	{
+		assertTrue(true);
+	}
 
 }
