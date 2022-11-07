@@ -1,0 +1,23 @@
+{
+  "name": "swt",
+  "version": "1.1.0",
+  "description": "Softwaretechnik Praktikum",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WHS-SWT-P35-WiSe22-23/praktikum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WHS-SWT-P35-WiSe22-23/praktikum/issues"
+  },
+  "homepage": "https://github.com/WHS-SWT-P35-WiSe22-23/praktikum#readme"
+}
