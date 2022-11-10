@@ -1,0 +1,187 @@
+Verschaffen Sie sich einen Überblick über eine mögliche Git
+(\href{https://gitlab.w-hs.de}{https://gitlab.w-hs.de}) Integration in Ihrer Entwicklungsumgebung.
+
+\paragraph{IntelliJ} unterstützt Git nativ, dennoch haben wir uns dazu entschieden, mit dem CLI weiter zu arbeiten, da es uns mehr Kontrolle bietet.
+Um das Projekt zu überführen, laden wir uns deshalb alle Teilprojekte herunter und führen anschließend den Initialisierungsbefehl aus.
+\begin{lstlisting}[label={lst:git-initialize}, caption={Initialisieren eines leeren Git Repositories}]
+git init
+\end{lstlisting}
+
+Anschließend wird ein initialer Commit erstellt:
+\begin{lstlisting}[caption={Inizialen Commit erstellen},label={lst:initial-commit}]
+git add .
+git commit -m "Initial Commit"
+\end{lstlisting}
+
+Um diesen dann auf unser GitHub Repository hochzuladen, fügen wir zunächst den Remote hinzu:
+\begin{lstlisting}[label={lst:add-remote}, caption={Hinzufügen eines Remotes}]
+git remote add origin git@github.com:WHS-SWT-P35-WiSe22-23/praktikum.git
+\end{lstlisting}
+
+Anschließend laden wir die Branch hoch, indem wir sie pushen:
+\begin{lstlisting}[label={lst:first-push}, caption={Erster push}]
+git push -u origin HEAD
+\end{lstlisting}
+
+\subsection{a. Teilen des Codes}\label{subsec:a.-teilen-des-codes}
+Clonen Sie ein komplettes Projekt aus dem Repository in ihr privates lokales Repository.
+
+\paragraph{Die} anderen Team Mitglieder können das Repository mittels des clone Befehls herunterzuladen:
+\begin{lstlisting}[label={lst:clone}, caption={Clonen des Repositories}]
+git clone git@github.com:WHS-SWT-P35-WiSe22-23/praktikum.git
+\end{lstlisting}
+
+\subsection{c. Commits}\label{subsec:c.-commits}
+Ändern Sie einzelne Dateien und committen Sie diese in Ihr privates Repository.
+
+\paragraph{Als} Änderung haben wir uns eine der JUnit Klassen ausgesucht.
+Hier haben wir einen Test hinzugefügt:
+\begin{lstlisting}[label={lst:true-test}, caption={Abgeänderter Testfall 1}]
+public void alwaysTrue() {
+    assertTrue(true);
+}
+\end{lstlisting}
+
+Anschließend müssen wir die Änderung stagen und commiten:
+\begin{lstlisting}[label={lst:commit-true-test}, caption={Committen von Testfall 1}]
+git add .
+git commit -m "test(p3.c): added dummy test"
+\end{lstlisting}
+
+\subsection{d. Mehrere Commits}\label{subsec:d.-mehrere-commits}
+Führen Sie mehrere Commits durch aufeinander folgende Änderungen durch.
+
+\paragraph{Mit} demselben Ablauf haben wir einen weiteren Test hinzugefügt:
+\begin{lstlisting}[label={lst:false-test}, caption={Abgeänderter Testfall 2}]
+public void alwaysFalse() {
+    assertFalse(false);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[label={lst:commit-false-test}, caption={Committen von Testfall 2}]
+git add .
+git commit -m "test(p3.c): added second dummy test"
+\end{lstlisting}
+
+Und diesen verändert:
+\begin{lstlisting}[label={lst:inverted-true-test}, caption={Abgeänderter Testfall 3}]
+public void alwaysFalse() {
+    assertFalse(!true);
+}
+\end{lstlisting}
+\begin{lstlisting}[label={lst:commit-inverted-true-test}, caption={Committen von Testfall 3}]
+git add .
+git commit -m "test(p3.c): changed second dummy test"
+\end{lstlisting}
+
+\subsection{e. Cooperation}\label{subsec:e.-cooperation}
+Pushen Sie die zuvor committeten Änderungen in das remote Repository und aktualisieren Sie das private Repository bei allen Gruppenmitgliedern.
+
+Zur Kooperation brauchen wir push und pull.
+Zum Hochladen pushen wir die Commits in eine neue Branch:
+\begin{lstlisting}[label={lst:push-p3e}, caption={Hochladen der Änderungen aus\ \ref{subsec:d.-mehrere-commits}}]
+git switch -c feature/p3e
+git push -u origin HEAD
+\end{lstlisting}
+
+Um das Repository der anderen zu aktualisieren, mussten wir einen pull ausführen:
+\begin{lstlisting}[label={lst:pull-p3e}, caption={Herunterladen der Änderungen aus \ \ref{subsec:d.-mehrere-commits}}]
+git fetch
+git switch feature/p3e
+\end{lstlisting}
+
+\subsection{f. Merge-Konflikte vermeiden}\label{subsec:f.-merge-konflikte-vermeiden}
+Erzeugen Sie einen Merge-Konflikt, der automatisch zusammengeführt werden kann.
+
+\paragraph{Um} einen Merge Konflikt zu erzeugen, erstellen wir zunächst eine Branch vom letzten Commit:
+\begin{lstlisting}[label={lst:create-p3f}, caption={Erstellen einer neuen Branch ohne Mergekonflikte}]
+git switch -c feature/p3f HEAD~1
+\end{lstlisting}
+
+Nun ändern wir den Test in einer anderen Zeile:
+\begin{lstlisting}[label={lst:change-false-test}, caption={Erstellen einer Änderung ohne Mergekonflikte}]
+public void alwaysFalse() {
+    System.out.println(false);
+    assertFalse(false);
+}
+\end{lstlisting}
+
+Diese Änderung beeinflusst keine Zeile, die ein anderer Commit auch beeinflusst.
+Deshalb gibt es keinen Merge Konflikt.
+
+\begin{lstlisting}[label={lst:commit-change-false-test}, caption={Commiten einer Änderung ohne Mergekonflikte}]
+git add .
+git commit -m "test(p3.f): changed second dummy test"
+git push -u origin HEAD
+\end{lstlisting}
+
+\subsection{g. Merge-Konflikte provozieren}\label{subsec:g.-merge-konflikte-provozieren}
+Erzeugen Sie einen Merge-Konflikt, der manuell zusammengeführt werden kann.
+
+\paragraph{Um} einen Merge Konflikt zu erzeugen, erstellen wir zunächst eine Branch vom letzten Commit:
+\begin{lstlisting}[label={lst:create-p3g},caption={Erstellen einer neuen Branch mit Mergekonflikten}]
+git switch -c feature/p3g HEAD~1
+\end{lstlisting}
+
+Nun ändern wir den Test in einer anderen Zeile:
+
+\begin{lstlisting}[label={lst:double-negative-false-test}, caption={Erstellen einer Änderung mit Mergekonflikten}]
+public void alwaysFalse() {
+    assertFalse(!!false);
+}
+\end{lstlisting}
+
+Dies führt zu einem Merge-Konflikt, da widersprüchliche Änderungen in derselben Zeile stattfinden.
+
+\begin{lstlisting}[label={lst:commit-p3g}, caption={Committen einer Änderung mit Mergekonflikten}]
+git add .
+git commit -m "test(p3.g): changed second dummy test"
+git push -u origin HEAD
+\end{lstlisting}
+
+\subsection{i. Gitignore}\label{subsec:i.-gitignore}
+Können einzelne Projektdateien von einer Verwaltung in Git ausgeschlossen werden (beispielsweise alle *.class-Dateien sonstige lokale Hilfsdateien)?
+
+\paragraph{Hierzu} dient die \href{https://git-scm.com/docs/gitignore}{.gitignore}.
+Hier können Kaskadiert Dateipfade, die mit dem globbing System von Bash erweitert werden, angegeben werden.
+Diese werden folglich von GIT ignoriert, insofern die entsprechende Datei nicht bereits gestaged ist.
+Ein Beispiel für Java Projekte ist:
+
+\begin{lstlisting}[label={lst:gitignore}, caption={.gitignore}]
+*.class
+*.jar
+\end{lstlisting}
+
+\subsection{j. Markdown}\label{subsec:j.-markdown}
+Welche Möglichkeiten sieht Git (insbesondere Github und Gitlab) vor, um Dokumentation erstellen zu können?
+Erstellen Sie eine entsprechende Datei und machen sich mit der Notation vertraut.
+Beschreiben Sie in der Dokumentation exemplarisch wie die einzelne Anwendungsteile erstellt und gestartet werden können.
+
+\paragraph{Das} Dateiformat Markdown, welches eine vereinfachte Auszeichnungssprache ist, die zu HTML interpretiert wird, wird unter GitHub und GitLab meist für wichtige Dateien, wie \qq{README.md}, \qq{CHANGELOG.md} und \qq{CONTRIBUTING.md} verwendet.
+Dabei zeichnet sich Markdown durch seine einfache Syntax aus, was es auch im Textformat leicht lesbar macht.
+Ursprünglich nutzten wir Markdown auch, um unsere Aufgaben zu verfassen.
+Mittlerweile nutzen wir der Komplexität halber \LaTeX.
+
+\subsection{k. Merge}\label{subsec:k.-merge}
+Welche Möglichkeiten kann man nutzen, um zwei unterschiedliche Entwicklungslinien
+(Branches) eines Projektes wieder zusammenzuführen (Merge)? Spielen Sie diese
+Situation in der Gruppe
+
+\subsubsection{3-Way-Merge (ORT Strategie)}
+\begin{lstlisting}[label={lst:3-way-merge}, caption={3-Way-Merge}]
+git switch a
+git merge b
+\end{lstlisting}
+
+Es werden rekursiv beide Pointer, a und b, miteinander verglichen.
+Dabei entsteht ein Merge-Commit, der 2 Parent-Commits hat.
+
+\subsubsection{Rebase}
+\begin{lstlisting}[label={lst:rebase}, caption={Rebase}]
+git switch b
+git rebase a
+\end{lstlisting}
+
+Rebase sucht sich den letzten gemeinsamen Commit beider Branches und applied dann zunächst alle Commits der Branch \qq{a} und dann alle Commits der Branch \qq{b}.
+So bleibt eine lineare Historie ohne Verästelungen.
+Für einzelne Konflikte wird derselbe Merge Algorithms wie beim klassischen Merge verwendet.

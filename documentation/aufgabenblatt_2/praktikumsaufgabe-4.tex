@@ -1,0 +1,79 @@
+Erweitern Sie Ihren Repository so, dass Sie auch unter Realbedingungen an einem Projekt im Team arbeiten können.
+Führen Sie die nötigen Anpassungen durch und dokumentieren Sie den Lösungsweg.
+Zusätzlich dazu bewerten Sie einzelne Maßnahmen und diskutieren Sie deren Nutzen.
+
+\subsection{a. Branching-Struktur}\label{subsec:a.-branching-struktur}
+Erstellen Sie eine geeignete Branching-Struktur (schauen Sie dazu in die Vorlesungsunterlagen).
+
+\paragraph{Wir} orientieren uns am Git-Flow Modell, da dies der aktuelle Marktstandard ist.
+Jeder release kommt in \qq{main} (ehemals \qq{master}), der aktuellste, funktionierende Stand in \qq{develop} und die Entwicklung findet im alltag in sogenannten Feature branches stadt.
+Diese haben das Namenspräfix \qq{feature/} und werden in develop gemerged.
+Häufig wird hier gesquashed, also die Commits zu einem zusammengeführt, und mittels \href{https://www.conventionalcommits.org/en/v1.0.0/}{Conventional Commits} benannt.
+Dies bietet den Vorteil, dass Releases automatisch generiert werden können.
+Für einen Release wird jeweils ein eigener Release-Branch erstellt (\qq{release/major.minor.patch}]).
+Dieser hat develop als upstream und wird in main/master gemerged.
+Anschließend wird main/master wieder in develop gemerged, sodass die Entwickler mit dem neuen Stand arbeiten.
+Sollte ein kritischer Bug in main/master auftauchen, so kann ein Hotfix über einen Hotfix-Branch, mit upstream master und präfix \qq{hotfix/}, in main/master gemerged werden.
+In den neusten Versionen von GitLab können diese Regeln konfiguriert werden, in GitHub wäre uns dies nicht bewusst.
+
+\subsection{b. Branch Protection}\label{subsec:b.-branch-protection}
+Stellen Sie sicher, dass beim Mergen von unterschiedlichen Branches kein \qq{Überspringen} möglich ist (Tipp: setzen Sie Locks auf Branches).
+
+\paragraph{Um} dies auf GitHub zu erreichen muss zunächst in die Einstellungen des Repositories gegangen werden.
+Hier ist die option \qq{Branches > Branch protection rules > Add rule} zu finden.
+Wollen wir nun z.B.\ develop schützen, so tragen wir develop als Namen ein und aktivieren die Checkbox \qq{Lock Branch} sowie \qq{Require a pull request before merging}.
+Jetzt muss eine Pull Request gestellt werden, um einen Commit in develop zu pushen.
+Um diese Regel für alle Branches durchzusetzen muss als Name ein Asterisk (*) eingetragen werden.
+
+\subsection{c. Team Review}\label{subsec:c.-team-review}
+Für eine qualifizierte Softwareentwicklung ist Nachvollziehbarkeit wichtig.
+Git hilft hier bereits an vielen Stellen.
+Stellen Sie sicher, dass ein Merge in den Master-Branch nur durch einen Pull-Request durchgeführt werden kann.
+Vergeben Sie in Gitlab die Berechtigungen auf Ihren Repository so, dass einige Gruppenmitglieder Pull-Requests einstellen können, andere wiederum diese bestätigen müssen.
+Testen Sie den Prozess durch das Erstellen eines Pull-Requests.
+
+\paragraph{Unter} dem selben Punkt wie in~\ref{subsec:b.-branch-protection} erstellen wir hierzu eine neue Regel.
+Als Pattern ist main anzugeben.
+Um ein Team Review zu erzwingen ist nun zusätzlich die Checkbox \qq{Require approvals} zu setzen.
+Diese erscheint nur, wenn \qq{Require a pull request before merging} gesetzt ist.
+Hier kann inzwischen die anzahl der erforderten Reviewer eingestellt werden.
+
+\subsection{d. Release}\label{subsec:d.-release}
+Erstellen Sie ein Release Ihrer Software.
+Vergessen Sie nicht die Bestimmung einer geeigneten Version sowie die Anlage eines Changelogs.
+
+\paragraph{Da} wir semantic versioning sowie conventional commits verwenden, können wir uns den Release automatisch erstellen lassen.
+Das entsprechende Packet finden wir mittels npm:
+\begin{lstlisting}[label={lst:create-release}, caption={Erstellen eines Releases}]
+npm init
+npm install --save-dev standard-version
+npx standard-version --first-release
+git push
+git push --tags
+\end{lstlisting}
+Es wird automatisiert eine CHANGELOG.md Datei sowie ein entsprechender Git tag erstellt.
+So reicht es jetzt eine Pull Request in main zu stellen.
+
+\subsection{e. Tickets}\label{subsec:e.-tickets}
+Erstellen Sie in der Gruppe verschiedene Issues innerhalb von Gitlab.
+Bearbeiten Sie als Entwickler die Issues und verbinden diese mit den nötigen Codeanpassungen.
+Ziel ist es, dass Sie über die Weboberfläche sehen können, welche Issues zu welchen Codeänderungen geführt haben.
+
+\paragraph{Tickets}, oder im englischen Issues, lassen sich in ihrem eigenen, gleichnamigen, Tab finden.
+Mit einem Klick auf \qq{New Issue} haben wir ein neues Ticket erstellt.
+Dies konnten wir nun direkt in unser KanBan Bord einordnen.
+Erstellen wir jetzt einen Commit, der das Schlüsselwort \qq{closes \#<id>} beinhaltet, so schließt das mergen des Commits in die eingestellte \qq{Default Branch}, so wird auch das Ticket geschlossen und auf dem Board auf done geschoben.
+
+\subsection{f. Clone}\label{subsec:f.-clone}
+Löschen Sie den Klon auf Ihrer lokalen Festplatte.
+Es soll nun eine neues lokales privates Repository erzeugt werden, indem die zuvor (Punkt d) erzeugte \qq{exakte} Release-Version geclont wird.
+
+\paragraph{Nach} dem löschen können wir den Release herunterladen, indem wir eine Git referenz spezifizieren.
+\begin{lstlisting}[label={lst:clone-release}, caption={Herunterladen eines Releases}]
+git clone -b v1.1.0 git@github.com:WHS-SWT-P35-WiSe22-23/praktikum.git
+\end{lstlisting}
+Das -b steht dabei für Branch, akzeptiert aber jede, beliebige, Git Referenz.
+
+\subsection{Cherry-Picking}\label{subsec:cherry-picking}
+Beim Cherry-Picking werden ein oder mehrere aufeinanderfolgende Commits von einer Branch auf eine andere übertragen.
+Dies ist nützlich, um aus einer Branch nur spezifische Features in eine andere zu übernehmen.

@@ -26,4 +26,14 @@ hs_err_pid*
 # IDE
 .idea/
 
+# npm
 node_modules/
+
+# LaTeX
+out/
+*.aux
+*.lof
+*.lol
+*.pdf
+*.synctex.gz
+*.toc
