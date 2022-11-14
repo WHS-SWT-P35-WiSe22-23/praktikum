@@ -18,12 +18,12 @@ public class SwingMonitor extends Monitor implements ActionListener
 	}
 
 	protected JFrame frame;
-	protected final int INITIAL_WIDTH  = 500;
-	protected final int INITIAL_HEIGHT = 400;
+	protected static final int INITIAL_WIDTH  = 500;
+	protected static final int INITIAL_HEIGHT = 400;
 	
 	JLayeredPane layer = new JLayeredPane();
    // cache for internal frames
-   protected Hashtable<String, JInternalFrame> frames = new Hashtable<String, JInternalFrame>();
+   protected Map<String, JInternalFrame> frames = new HashMap<>();
 
 	protected SwingMonitor()
 	{
@@ -136,11 +136,7 @@ public class SwingMonitor extends Monitor implements ActionListener
 
 		if (e.getSource().getClass() == JMenuItem.class)
 		{
-			if (c.equals("Logins"))
-			{
-				
-			}
-			else if (c.equals("Start"))
+			if (c.equals("Start"))
 			{
 				server.startServer();
 			}
@@ -177,14 +173,14 @@ public class SwingMonitor extends Monitor implements ActionListener
 			gui.setSelected(true);
 
 		}
-		catch (java.beans.PropertyVetoException ex)
-		{}
+		catch (java.beans.PropertyVetoException ignored) {}
 
 		layer.add(gui, 0);
 	}
 
 	class WindowEventHandler extends WindowAdapter
 	{
+		@Override
 		public void windowClosing(WindowEvent e)
 		{
 			server.stopServer();
