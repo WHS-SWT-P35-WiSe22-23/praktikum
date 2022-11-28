@@ -57,7 +57,7 @@
     	<copy todir="${deploy.base}"><fileset file="../SWTKal.Base/targets/deploy/jars/swtkal.junittests.jar"/></copy>
     	<copy todir="${deploy.base}"><fileset file="${junit.jar}"/></copy>
 		<!-- das Folgende wird unnoetig, wenn Zugriff auf Image-Ressourcen aus Jar-Dateien realisiert wurde -->
-    	<copy todir="${run.dir}"><fileset dir="../SWTKal.SwingGUI/src/" includes="images/**"/></copy>
+    	<copy todir="${run.dir}"><fileset dir="../SWTKal.SwingGUI/src/" includes="resources/images/**"/></copy>
     </target>
 
     <!-- ================================= 
