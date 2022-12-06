@@ -1,42 +1,118 @@
 \documentclass[12pt]{article}
 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
-\usepackage{fontenc}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+\usepackage{csquotes}
+\usepackage{hyphenat}
+\usepackage{textcmds}
+\usepackage{xspace}
+\usepackage{listings}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage{authblk}
+\renewcommand*{\Authsep}{, }
+\renewcommand*{\Authand}{ und }
+\renewcommand*{\Authands}{ und }
+
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\usepackage{graphicx}
+\usepackage{chngpage}
+\usepackage{calc}
+
+\renewcommand{\lstlistingname}{Code}
+\renewcommand{\lstlistlistingname}{Codeverzeichnis}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=blue,
+    urlcolor=blue,
+    pdftitle={Semesterprojekt},
+    pdfauthor={Nik Benson},
+    pdfpagemode=FullScreen,
+}
+\urlstyle{same}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{csvsimple}
+
+\usepgfplotslibrary{units}
+
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=c}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\title{Semesterprojekt}
+\author[1]{Nik Benson}
+\affil[1]{\href{mailto:nik.benson@studmail.w-hs.de}{nik.benson@studmail.w-hs.de}}
+\author[2]{<name>}
+\affil[2]{\href{mailto:<email>}{<email>}}
+\author[3]{<name>}
+\affil[3]{\href{mailto:<email>}{<email>}}
+\author[4]{<name>}
+\affil[4]{\href{mailto:<email>}{<email>}}
 
 \begin{document}
+    \pagenumbering{gobble}
+    \include{title}
+
+    \pagenumbering{Roman}
+    \addcontentsline{toc}{section}{Inhaltsverzeichnis}
+    \tableofcontents
+    \newpage
+    \addcontentsline{toc}{section}{Abbildungsverzeichnis}
+    \listoffigures
+    \addcontentsline{toc}{section}{Tabellenvrzeichnis}
+    \listoftables
+    \newpage
+    \pagenumbering{arabic}
+
 
     \section{Produktvision}\label{sec:produktvision}
-    Die Kundengruppe sind nutzer der TEKLOTH Software.
-    Ziel ist es, eine Videoanrufsoftware nach dem SIP Standard zu implementieren, die mit der vorhandenen Software kompatibel ist.
-    In der TEKLOTH Software soll das Bild eingebunden werden und der Administrator soll den Anruf verwalten können.
-    Ein angeforderter Anruf soll dabei über eine automatische Support-Kette an den höchst priorisierten Administrator, der Zeit hat, weiter geleitet werden.
-    Auch soll eine Klinge funktion sowie eine Peer-to-Peer anruffunktion implementiert werden.
+        \input{produktvision}
+
 
     \section{Persona-Stories}\label{sec:persona-stories}
-    \subsection{Bewohner eines Mehrfamilienhauses}\label{subsec:bewohner-eines-mehrfamilienhauses}
-    Als Bewohner möchte ich entscheiden können, ob auf meiner Klingel mein Name oder nur meine Hausnummer steht.
-    Wenn die Klingel gedrückt wird möchte ich einen einstellbaren Alarm auf meinem digitalen Endgerät erhalten und das Bild vor meiner Haustür einsehen können.
-    Mit dem mobilen Endgerät möchte ich auch andere Bewohner meines Wohnkomplexes erreichen können und in einer Favoritenliste sortieren können.
-    Bei Notwendigkeit möchte ich auch einen Hausverwalter (Administrator) kontaktieren können.
+        \input{persona-stories}
 
 
-    \subsection{Hausverwalter}\label{subsec:hausverwalter}
-    Als Hausverwalter möchte das Bild der Klingel meiner Wohnungen in der TEKLOTH Software einsehen können.
-
-
-    \subsection{Wartungsmitarbeiter einer Industriefirma}\label{subsec:wartungsmitarbeiter-einer-industriefirma}
-    Als Wartungsmitarbeiter möchte ich in der Technik ein Gerät vorfinden, mit dem ich den Support verständigen kann.
-    Der Videoanruf soll nach einer Prioritätenliste die Personen mit der besten Ahnung vom System anfragen, um den bestmöglichen Support zu erhalten.
-    Dabei soll der Support Zugriff auf die entsprechende, von TEKLOTH verwaltete Technik, bekommen.
-
-
-    \subsection{Hotelbesucher}\label{subsec:hotelbesucher}
-    Als Hotelbesucher möchte ich den Zimmerservice kontaktieren können.
-    Außerdem möchte ich mittels der Zimmernummer Endgeräte in anderen Zimmern anrufen können.
-
-
-    %\bibliography{main}
-    %\bibliographystyle{plain}
-
+    \section{Szenarien}\label{sec:szenarien}
+        \input{szenarien}
 \end{document}
