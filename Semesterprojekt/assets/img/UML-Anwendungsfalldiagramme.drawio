@@ -1,1 +1,239 @@
-<mxfile host="app.diagrams.net" modified="2022-12-07T15:26:53.485Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" version="20.6.0" etag="nya2NSWMkBGgmZG8FmAv" type="github"><diagram id="r57iRVHjP5qn0wwhZMlq">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-12-07T17:05:01.197Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" version="20.6.0" etag="1D5DzP0hz_BUihIHpYlE" type="github" pages="4">
+  <diagram id="9683CgnAG9iSsfslkuzx" name="Klingeln bei einem Mehrfamilienhaus">
+    <mxGraphModel dx="1354" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-1" target="H2sUAbrCjyI3HVD_D6Cz-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-9" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-1" target="H2sUAbrCjyI3HVD_D6Cz-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-10" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-1" target="H2sUAbrCjyI3HVD_D6Cz-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-11" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-1" target="H2sUAbrCjyI3HVD_D6Cz-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-13" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-1" target="H2sUAbrCjyI3HVD_D6Cz-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-1" target="H2sUAbrCjyI3HVD_D6Cz-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9yt23cUk8mRBP5bSDofl-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-1" target="9yt23cUk8mRBP5bSDofl-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-1" value="Wohnungsbesitzer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="295" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-19" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-2" target="H2sUAbrCjyI3HVD_D6Cz-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-2" value="Besucher" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="295" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7n0-RG5vhHjVjFanLFle-1" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-3" target="H2sUAbrCjyI3HVD_D6Cz-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7n0-RG5vhHjVjFanLFle-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-3" target="H2sUAbrCjyI3HVD_D6Cz-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="225" />
+              <mxPoint x="400" y="425" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9yt23cUk8mRBP5bSDofl-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H2sUAbrCjyI3HVD_D6Cz-3" target="9yt23cUk8mRBP5bSDofl-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="225" />
+              <mxPoint x="430" y="525" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-3" value="Anruf entgegennehmen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="190" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-4" value="Anruf ablehnen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="90" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-5" value="Automatikschloss der Tür aufschließen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="590" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-6" value="Live-Bild der Kamera anschalten" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="290" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-7" value="Live-Bild der Kamera ausschalten" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="390" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-17" value="Klingel betätigen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="290" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="H2sUAbrCjyI3HVD_D6Cz-20" value="Automatikschloss der Tür zuschließen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="690" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="9yt23cUk8mRBP5bSDofl-1" value="Anruf beenden" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="490" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="JxEIH-Uk0lNDoZk8EkzT" name="Vandalismus">
+    <mxGraphModel dx="1354" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zpUe-gpLJ5Kz6TNS0Bf4-2" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NY1Xv3dAFsydf8nAv5eL-1" target="zpUe-gpLJ5Kz6TNS0Bf4-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NY1Xv3dAFsydf8nAv5eL-1" value="Hausverwalter" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="275" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zpUe-gpLJ5Kz6TNS0Bf4-1" value="Aufgezeichnetes Videomaterial einsehen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="270" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="DC1BSAgUDb4t2_rW9QcT" name="Industrieanlage reparieren">
+    <mxGraphModel dx="1354" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="X-M2JpFEYGyv65lq07dr-2" value="Anruf weiterleiten" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="620" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="KxeY4YuqUHuB_UMcK9AJ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="naO0QrR7ccBmNV11BkrM-1" target="KxeY4YuqUHuB_UMcK9AJ-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="755" />
+              <mxPoint x="280" y="455" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KxeY4YuqUHuB_UMcK9AJ-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="naO0QrR7ccBmNV11BkrM-1" target="KxeY4YuqUHuB_UMcK9AJ-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="755" />
+              <mxPoint x="260" y="355" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1OUGvyOp0VnbtjsXrxqf-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="naO0QrR7ccBmNV11BkrM-1" target="naO0QrR7ccBmNV11BkrM-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="755" />
+              <mxPoint x="290" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="naO0QrR7ccBmNV11BkrM-1" value="Anruf entgegennehmen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="720" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="naO0QrR7ccBmNV11BkrM-2" value="Anruf ablehnen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="820" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="naO0QrR7ccBmNV11BkrM-3" value="Anruf beenden" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="520" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wXhkDM2_RsmrbqnzqRcJ-8" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-1" target="naO0QrR7ccBmNV11BkrM-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KxeY4YuqUHuB_UMcK9AJ-5" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-1" target="KxeY4YuqUHuB_UMcK9AJ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KxeY4YuqUHuB_UMcK9AJ-6" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-1" target="KxeY4YuqUHuB_UMcK9AJ-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="K_--6l42lXjtmq69ku_P-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-1" target="K_--6l42lXjtmq69ku_P-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="K_--6l42lXjtmq69ku_P-4" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-1" target="K_--6l42lXjtmq69ku_P-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wXhkDM2_RsmrbqnzqRcJ-1" value="Industrie-Mitarbeiter" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="385" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wXhkDM2_RsmrbqnzqRcJ-4" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-3" target="X-M2JpFEYGyv65lq07dr-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wXhkDM2_RsmrbqnzqRcJ-5" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-3" target="naO0QrR7ccBmNV11BkrM-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wXhkDM2_RsmrbqnzqRcJ-6" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-3" target="naO0QrR7ccBmNV11BkrM-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wXhkDM2_RsmrbqnzqRcJ-7" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wXhkDM2_RsmrbqnzqRcJ-3" target="naO0QrR7ccBmNV11BkrM-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wXhkDM2_RsmrbqnzqRcJ-3" value="Reparatur-Mitarbeiter" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="660" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KxeY4YuqUHuB_UMcK9AJ-3" value="Bildschirmfreigabe starten" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="320" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="KxeY4YuqUHuB_UMcK9AJ-4" value="Bildschirmfreigabe stoppen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="420" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="K_--6l42lXjtmq69ku_P-1" value="Kontakt von Service-Unternehmen suchen und auswählen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="120" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="K_--6l42lXjtmq69ku_P-2" value="Kontakt anrufen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="wNCC-YN0mPjggOWZhk0P" name="Zimmerservice">
+    <mxGraphModel dx="1354" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="f4G6d4ESCpuel53y0smk-2" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eITpSbHSYu2vecG4eaP6-1" target="5KBEn8xQkYRYPp7Ggdv--1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4G6d4ESCpuel53y0smk-3" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eITpSbHSYu2vecG4eaP6-1" target="5KBEn8xQkYRYPp7Ggdv--2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4G6d4ESCpuel53y0smk-6" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eITpSbHSYu2vecG4eaP6-1" target="f4G6d4ESCpuel53y0smk-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eITpSbHSYu2vecG4eaP6-1" value="Hotelgast" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="260" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c8Du09bSsaoddzDz6t1H-5" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="orSrijJYiG3t8mVnugKc-2" target="f4G6d4ESCpuel53y0smk-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="orSrijJYiG3t8mVnugKc-2" value="Anruf entgegennehmen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="355" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="orSrijJYiG3t8mVnugKc-3" value="Anruf ablehnen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="455" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="5KBEn8xQkYRYPp7Ggdv--1" value="Kontakt suchen und auswählen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="55" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="5KBEn8xQkYRYPp7Ggdv--2" value="Kontakt anrufen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="155" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="f4G6d4ESCpuel53y0smk-1" value="Anruf beenden" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="255" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c8Du09bSsaoddzDz6t1H-2" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="c8Du09bSsaoddzDz6t1H-1" target="orSrijJYiG3t8mVnugKc-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c8Du09bSsaoddzDz6t1H-3" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="c8Du09bSsaoddzDz6t1H-1" target="orSrijJYiG3t8mVnugKc-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c8Du09bSsaoddzDz6t1H-4" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="c8Du09bSsaoddzDz6t1H-1" target="f4G6d4ESCpuel53y0smk-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c8Du09bSsaoddzDz6t1H-1" value="Zimmerservice" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="260" width="30" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
