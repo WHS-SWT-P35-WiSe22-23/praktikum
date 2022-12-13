@@ -1,0 +1,55 @@
+Es soll ein Softwareprodukt entwickelt werden.
+Mehr zu den Anforderungen befinden sich im PDF (Projektbeschreibung -- Telefonanlagensystem.pdf).
+Bereiten Sie das geplante Semesterprojekt vor, indem Sie zunächst eine agile Produktplanung durchführen.
+Zusätzlich dazu soll die Architektur entwickelt und beschrieben werden.
+Nutzen Sie das bereitgestellte PDF (Agile Produktplanung\_Von\_der\_Vision\_zum\_Produkt.pdf) in Moodle als Hilfestellung.
+Es können zusätzlich eigene Materialien sowie Fachliteratur genutzt werden.
+Schauen Sie auch in die Vorlesungsunterlagen und achten auf die Zusammenhänge zwischen den einzelnen Teilen Produktvision, Persona, Szenarien sowie den zu erstellenden Diagrammen und der Architektur.
+In der agilen Produktplanung und der Modellierung muss das Folgende enthalten sein:
+\begin{itemize}
+\item Erarbeitung und Formulierung der Produktvision
+\item Erarbeitung und Erstellung relevanter detaillierter Persona--Stories, mindestens jedoch vier Stück.
+\item Erarbeitung und Erstellung relevanter Szenarien, mindestens jedoch vier Stück.
+\item Die Personas und Szenarien müssen zusammenhängend sein und sich jeweils weiter detaillieren.
+\item Erstellen Sie passend zu den Szenarien entsprechende Anwendungsfälle mit Hilfe von UML--Anwendungsfalldiagrammen.
+    Erstellen Sie zu jedem Anwendungsfall eine aussagekräftige Beschreibung.
+    Nutzen Sie dazu die strukturierte textuelle Beschreibungsform.
+    Erfassen Sie die Anwendungsfälle vollständig.
+\item Erarbeiten und Erstellen Sie basierend auf den Anwendungsfällen mindestens vier User-- und System--Requirements.
+    Diese müssen detailliert ausformuliert werden.
+\item Erstellen Sie mindestens zwei nicht--triviale UML-Sequenzdiagramme zur Veranschaulichung einzelner Abläufe von zuvor spezifizierten Anwendungsfällen.
+    Hinweis: Nutzen Sie einen Anwendungsfall als Referenz und beschreiben Sie die genaue Interaktion zwischen den einzelnen Systemkomponenten durch das Sequenzdiagramm.
+    Integrieren Sie relevante Daten in das Diagramm.
+\item Detaillieren Sie die zuvor definierten Szenarien aus der Roadmap in User--Stories.
+    Anschließend disaggregieren (zerlegen) Sie die User--Stories in Tasks, die von einzelnen Entwicklern abgearbeitet werden können.
+    Es sollen mindestens fünf User--Stories in Tasks zerlegt werden.
+    Stellen Sie sicher, dass ein Entwickler auf Basis einer Task--Beschreibung alle Informationen erhält, die zur Umsetzung erforderlich sind.
+\end{itemize}
+Die Architektur muss die folgenden Teilkomponenten enthalten:
+\begin{itemize}
+\item Entwicklung und Erstellung eines Kontextmodells zur Darstellung der Systemgrenzen unter Zuhilfenahme eines UML--Komponentendiagrams.
+    Es genügt eine aggregierte aussagekräftige Darstellung der einzelnen Subsysteme.
+    Die Modellierung der Prozessperspektive ist nicht notwendig.
+\item Nutzen Sie die komponentenbasierte Softwareentwicklung zur Verfeinerung der zuvor definierten Subsysteme aus dem Kontextmodell.
+    Gemeint ist damit, dass die zuvor festgelegten Systeme bzw. Subsysteme häufig aus mehreren Komponenten bestehen.
+    Diese sollen entworfen, verknüpft und vollständig modelliert werden.
+    Betrachten Sie ausschließlich Subsysteme, die Sie für das Produkt selbst erstellen müssen.
+    Bestehende Systeme, die Sie ausschließlich integrieren (z.B. Benutzerverwaltung), müssen nicht betrachtet werden.
+    Erstellen Sie dazu ein weiteres UML--Komponentendiagramm, welches um die zusätzlichen Komponentendetails angereichert ist.
+\item Ergänzen Sie das Komponentendiagramm und legen Sie Schnittstellen zwischen den Komponenten fest.
+    Beachten Sie wichtige \qq{benötigte} und \qq{anbietende} Schnittstellen.
+    Erzeugen Sie Adapter bei inkompatiblen Schnittstellen.
+\item Entwickeln Sie für mindestens zwei Komponenten aus dem Komponentendiagramm entsprechende Schichtenmodelle (Layered--Architecture--Pattern).
+    Diese sollten möglichst nicht identisch sein.
+    Schauen Sie sich dazu ebenfalls weitere Fachliteratur an.
+\item Entwickeln Sie eine geeigneten Branching--Strategie.
+    Insbesondere die Festlegung der verschiedenen Branches und deren Verknüpfungen sind detailliert darzustellen.
+    Es muss außerdem beschrieben werden, wie der Entwicklungsprozess die einzelnen Branches bedient und in welchen Situationen diese in welcher Art miteinander verknüpft sind (Hotfix, Entwicklungsarbeiten, Feature-Entwicklung, Qualitätstests, \dots).
+\item Basierend auf der Branching--Strategie müssen verschiedene Deployment--Umgebungen entworfen werden.
+    Gehen Sie insbesondere auf die Umgebungen und deren Verknüpfung zu den Branches ein.
+    Spielen Sie mindestens zwei konkrete Situationen aus dem zu entwickelnden Projekt exemplarisch durch (z.B. Erstellen und deployen eines Features, Fixen eines Bugs, Erstellen und deployen eines normalen Releases, \dots) und beschreiben Sie den Ablauf.
+\item Entwickeln Sie eine CI/CD Pipeline und beziehen Sie die entwickelte Branching--Struktur und die spezifizierten Deployment--Umgebungen in den Entwurf ein.
+    Beschreiben Sie insbesondere die Schritte des Continous Integration (CI) und Continous Deployment (CD) und geben die jeweils durchzuführenden Aktivitäten an.
+    Gehen Sie bei den zu beschreibenden Aktivitäten auf konkrete Aktivitäten aus Ihrem Projekt ein.
+    Schauen Sie ebenfalls in die Fachliteratur für weitere CI/CD Beispiele.
+\end{itemize}
