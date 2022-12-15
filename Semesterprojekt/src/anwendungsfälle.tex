@@ -1,241 +1,261 @@
 \begin{figure}[ht!]
     \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Klingeln bei einem Mehrfamilienhaus}
-    \caption{Diagram}
-    \label{fig:diagram}
+    \caption{Klingeln bei einem Mehrfamilienhaus}
+    \label{fig:klingeln-bei-einem-mehrfamilienhaus}
 \end{figure}
 
+\begin{figure}[ht!]
+    \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Vandalismus.drawio}
+    \caption{Vandalismus}
+    \label{fig:vandalismus}
+\end{figure}
+
+\begin{figure}[ht!]
+    \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Industrieanlage reparieren.drawio}
+    \caption{Industrieanlage reparieren}
+    \label{fig:industrieanlage-reparieren}
+\end{figure}
+
+\begin{figure}[ht!]
+    \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Zimmerservice.drawio}
+    \caption{Zimmerservice}
+    \label{fig:zimmerservice}
+\end{figure}
+
+\paragraph
+    Die Abbildungen 1 bis 4 sind UML-Anwendungsfalldiagramme und stellen die Anwendungsfälle nach den Szenarien dar.
+    Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in den Abbildungen) nochmal genau strukturiert erläutert.
 
 \paragraph{Klingel betätigen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Besucher möchte klingeln.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Klingel wird betätigt, um Kontakt zu Wohnungsbesitzer aufzunehmen.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Besucher.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Besucher möchte Kontakt zu Wohnungsbesitzer aufnehmen..
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Keine.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Wohnungsbesitzer wird angerufen.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Anruf annehmen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Ein eingehender Anruf soll angenommen werden.
-        \item[Beschreibung]\hfill \\
-        Indem der Benutzer auf die eingehende Bena
-        \item chrichtigung klickt, wird der Anruf angenommen.
+        \item[Beschreibung]
+        Indem der Benutzer auf die eingehende Benachrichtigung klickt, wird der Anruf angenommen.
         Wenn die Visualisierung beim Benutzer schon geöffnet ist, kann der Anruf auch in der Visualisierung angenommen werden.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Wohnungsbesitzer, Reparatur-Mitarbeiter, Zimmerservice.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Eingehender Anruf.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Besucher hat Klingel betätigt oder Industrie-Mitarbeiter oder Hotelgast hat Kontakt angerufen.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Anruf wurde angenommen und Gespräch gestartet.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Anruf ablehnen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Ein eingehender Anruf soll abgelehnt werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer die eingehende Benachritigung wegklickt, wird der Anruf abgelehnt.
         Wenn die Visualisierung beim Benutzer schon geöffnet ist, kann der Anruf auch in der Visualisierung abgelehnt werden.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Wohnungsbesitzer, Reparatur-Mitarbeiter, Zimmerservice.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Eingehender Anruf.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Besucher hat Klingel betätigt oder Industrie-Mitarbeiter oder Hotelgast hat Kontakt angerufen.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Anruf wurde abgelehnt.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Anruf beenden}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Ein laufender Anruf soll beendet werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den Button zum Auflegen betätigt, kann der Anruf jederzeit beendet werden.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Wohnungsbesitzer, Industrie-Mitarbeiter, Reparatur-Mitarbeiter, Hotelgast, Zimmerservice.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Einer der Akteure möchte den Anruf beenden.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Wohnungsbesitzer, Reparatur-Mitarbeiter oder Zimmerservice hat einen Anruf angenommen.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Anruf wurde beendet.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Anruf weiterleiten}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Ein eingehender Anruf soll an einen ausgewählten Kontakt weitergeleitet werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den Button zum Weiterleiten betätigt, kann der eingehende Anruf an einen verfügbaren Kontakt weitergeleitet werden.
         Diesen Kontakt kann er anschließend wie im Anwendungsfall "Kontakt suchen und auswählen" wählen.
         Mit einem weiteren Knopfdruck wird der Anruf an den ausgewählten Kontakt weitergeleitet.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Reparatur-Mitarbeiter.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Eingehender Anruf.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Industrie-Mitarbeiter hat Kontakt des Reparatur-Unternehmens angerufen.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Anruf wurde an ausgewählten Kontakt weitergeleitet.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Live-Bild der Kamera anschalten}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Das Live-Bild der Kamera an der Eingangstür soll angeschaltet werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Live-Bild angeschaltet.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Wohnungsbesitzer.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Der Wohnungsbesitzer möchte das Live-Bild der Kamera sehen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Besucher hat Klingel betätigt und Wohnungsbesitzer hat den daraufhin ausgelösten Anruf angenommen.
         Das Live-Bild ist ausgeschaltet.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Live-Bild wurde für den Wohnungsbesitzer angeschaltet.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Live-Bild der Kamera ausschalten}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Das Live-Bild der Kamera an der Eingangstür soll ausgeschaltet werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Live-Bild ausgeschaltet.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Wohnungsbesitzer.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Der Wohnungsbesitzer möchte das Live-Bild der Kamera nicht mehr sehen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Besucher hat Klingel betätigt und Wohnungsbesitzer hat den daraufhin ausgelösten Anruf angenommen.
         Das Live-Bild ist angeschaltet.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Live-Bild wurde für den Wohnungsbesitzer ausgeschaltet.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Automatikschloss der Tür aufschließen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Das Automatikschloss der Eingangstür soll aufgeschlossen werden, um den Besucher ins Gebäude zu lassen.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Automatikschloss aufgeschlossen.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Wohnungsbesitzer.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Der Wohnungsbesitzer möchte den Besucher ins Gebäude lassen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Besucher hat Klingel betätigt und Wohnungsbesitzer hat den daraufhin ausgelösten Anruf angenommen.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Das Automatikschloss der Eingangstür wurde aufgeschlossen.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Automatikschloss der Tür zuschließen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Das Automatikschloss der Eingangstür soll zugeschlossen werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Automatikschloss zugeschlossen.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Wohnungsbesitzer.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Der Wohnungsbesitzer möchte die Eingangstür zuschließen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Besucher hat Klingel betätigt und Wohnungsbesitzer hat den daraufhin ausgelösten Anruf angenommen.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Das Automatikschloss der Eingangstür wurde zugeschlossen.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Kontakt suchen und auswählen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Der Benutzer hat einen gesuchten Kontakt ausgewählt, wenn es ihn gibt.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Über eine Liste in der Visualisierung, eventuell auch Favoritenliste, kann der Benutzer einen Kontakt auswählen.
         Er kann auch einen Kontakt über eine Suchleiste suchen und diesen auswählen, wenn es ihn gibt.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Industrie-Mitarbeiter, Hotelgast.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Benutzer möchte Kontakt finden.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Keine.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Keine oder ein Kontakt wurde ausgewählt und kann angerufen werden.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Kontakt anrufen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Der Benutzer startet einen Anruf mit dem ausgewählten Kontakt.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Hat der Benutzer einen Kontakt ausgewählt, kann er diesen über einen Button anrufen.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Industrie-Mitarbeiter, Hotelgast.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Benutzer möchte Kontakt anrufen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Ein Kontakt wurde ausgewählt.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Ein Anruf mit Kontakt wurde gestartet.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Bildschirmfreigabe starten}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Die Bildschirmfreigabe soll gestartet werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird sein Bildschirm mit dem anderen Teilnehmer des Anrufs geteilt.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Industrie-Mitarbeiter.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Der Industrie-Mitarbeiter möchte seinen Bildschirm mit dem Reparatur-Mitarbeiter teilen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Reparatur-Mitarbeiter hat einen Anruf angenommen.
         Es wurde noch keine Bildschirmfreigabe gestartet oder diese wurde schon wieder gestoppt.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Die Bildschirmfreigabe wurde gestartet.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Bildschirmfreigabe stoppen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Die Bildschirmfreigabe soll gestoppt werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Teilen seines Bildschirms mit dem anderen Teilnehmer des Anrufs gestoppt.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Industrie-Mitarbeiter.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Der Industrie-Mitarbeiter möchte seinen Bildschirm nicht mehr mit dem Reparatur-Mitarbeiter teilen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Reparatur-Mitarbeiter hat einen Anruf angenommen.
         Die Bildschirmfreigabe wurde gestartet.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Die Bildschirmfreigabe wurde gestoppt.
-        \end{description}
+        \end{itemize}
 
 \paragraph{Aufgezeichnetes Videomaterial einsehen}
-    \begin{description}
-        \item[Ziel]\hfill \\
+    \begin{itemize}
+        \item[Ziel]
         Aufgezeichnetes Videomaterial, das nicht älter als eine Woche ist, soll eingesehen werden.
-        \item[Beschreibung]\hfill \\
+        \item[Beschreibung]
         Über die Visualisierung kann der Benutzer, über eine Liste, die Kamera auswählen, von der er das aufgezeichnete Videomaterial einsehen möchte.
         Darufhin wird ihm das entsprechende Videomaterial der letzten 7 Tage angezeigt.
-        \item[Akteure]\hfill \\
+        \item[Akteure]
         Hausverwalter.
-        \item[Auslöser]\hfill \\
+        \item[Auslöser]
         Hausverwalter möchte Videomaterial einsehen.
-        \item[Vorbedingungen]\hfill \\
+        \item[Vorbedingungen]
         Keine.
-        \item[Nachbedingungen]\hfill \\
+        \item[Nachbedingungen]
         Aufgezeichnetes Videomaterial, das nicht älter als eine Woche ist, wurde eingesehen.
-        \end{description}   
+        \end{itemize}   
