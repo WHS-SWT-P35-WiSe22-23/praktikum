@@ -1,0 +1,51 @@
+Mit dem von uns angenommenen Ultimate Plan von GitLab ist es möglich, sogenannte \qq{Merged results pipelines} zu erstellen.
+Die Besonderheit dieser Pipelines ist, dass sie gegen einen virtuellen Commit laufen, der den Zustand der Branch darstellt, als wäre sie bereits gemerged.
+So ist es möglich, das Ergebnis einer Merge Request zu analysieren, bevor wirklich gemerged wird und es entsprechend als Bedingung für einen Merge verwenden.
+Auf grund dieser Besonderheiten soll diese Form der Pipelines für unser CI genutzt werden.
+
+\begin{description}
+    \item[Mergen in Develop:]
+        Beim mergen in Develop muss im ersten Schritt Conventional Commits überprüft werden.
+        Dazu dient ein entsprechendes npm Package als CLI Tool.
+        Anschließend folgt die statische Codeanalyse mit einem Linter.
+        Danach wird die App kompiliert und das Kompilat wird für die weitere Verwendung zwischengespeichert.
+        Es folgen verschiedene Tests, gestartet mit Unit--tests, dann Golden--tests, Integration--tests und End-to-end-tests.
+        Auch die Test--Coverage sollte dabei ermittelt werden.
+        Wenn es zu Problemen diesbezüglich kommt, kann auch eine minimale Coverage eingestellt werden, oder als Bedingung gesetzt werden, dass diese mit jedem Merge nur steigen darf.
+        Gegebenenfalls kann als Linter und für die Tests SonarCube oder eine ähnliche Software verwendet werden, um möglichst viele der Aspekte in einem Schritt abzudecken.
+        Wenn all Tests und Lints erfolgreich durchgelaufen sind, dann kann die Merge Request nach einem Team-Review gemerged werden.
+
+
+    \item[Mergen in Staging:]
+        Wenn eine Merge Request in Staging gestartet wird, dann ist durch die Pipelines für den Develop bereits sichergestellt, dass sämtliche Lints und Tests bereits erfolgreich durchgelaufen sind.
+        Somit muss hier kein besonderer Schritt mehr ausgeführt werden.
+
+
+    \item[Mergen in Main:]
+        Wenn es sich nicht um einen Hotfix handelt, dann müssen, genau wie bei der Merge Request in Staging, hier keine weiteren Schritte folgen.
+        Handelt es sich allerdings um einen Hotfix, so müssen die Lints und Tests an dieser Stelle laufen.
+
+
+    \item[Develop:]
+        In den seltenen Fällen, wenn wirklich in Develop committet wird, dann sollen dieselben Schritte wie beim mergen in Develop ausgeführt werden.
+        Ist Develop die Staging Branch, so soll auch alles aus Staging ausgeführt werden.
+
+    \item[Staging:]
+        Auch in Staging müssen die Lints und Tests nicht erneut ausgeführt werden.
+        Stattdessen muss auf Staging deployt werden.
+
+
+        Für die App bedeutet das, dass der signierte Build in die PlayConsole (PlayStore), AppStoreConnect (AppStore), bzw. Äquivalente anderer Anbieter, hochgeladen wird.
+
+
+        Die Software für die Klingel--Hardware hingegen muss auf den FTP-Server hochgeladen werden.
+
+
+    \item[Main:]
+        Für die Software der Klingel--Hardware muss, analog zu Staging, die Software auf den Production FTP--Server hochgeladen werden.
+
+
+        Die App hingegen funktioniert nicht so analog, hier muss lediglich der Staging Build für den Release--Track der entsprechenden Platformen freigeschaltet werden.
+        Die einzige Ausnahme sind Hotfixes.
+        Hier muss zuvor noch eine neue Version hochgeladen werden.
+\end{description}

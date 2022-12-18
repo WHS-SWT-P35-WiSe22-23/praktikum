@@ -1,32 +1,74 @@
 \begin{itemize}
     \item Als Wohnungsbesitzer möchte ich entscheiden, ob nur meine Wohnung, oder auch mein Name auf der Klingel erscheint, um der Herr meiner Daten zu sein.
-        \subitem Designen der Klingelanzeige (Text und/oder Bild)
-        \subitem Designen des Menüs zur Klingelanzeige in der App (Texteingabe)
-        \subitem Backend CRUD implementierung Klingelanzeige
-        \subitem Implementieren des Menüs zur Klingelanzeige in der App\footnote{Unter Annahme eines Cross-Platform-Frameworks, wie Flutter, dass keine 2 Apps entwickelt werden müssen} (Backend Anbindung und umsetzen des Designs)
-        \subitem Implementieren der Klingelanzeige (Backend Anbindung und umsetzen des Designs)
+        \begin{description}
+            \item[Designen der Klingelanzeige (Text und/oder Bild)] Im beispiel der Speisekarte des Zimmerservices soll ein QR Code als Bild einstellbar sein.
+                Das Feature bezieht sich also nicht nur auf den Namen als Text.
+                Der Nutzer soll ein Bild oder einen Text auswählen können.
+                Dies ist keine feature flag, es kann auch gerne das Gesicht des Bewohners sein.
+                Ein entsprechend universelles design ist gefordert.
+            \item[Designen des Menüs zur Klingelanzeige in der App (Texteingabe)]
+                Das Feature bezieht sich also nicht nur auf den Namen als Text.
+                Der Nutzer soll ein Bild oder einen Text auswählen können.
+                Dies ist keine feature flag, es kann auch gerne das Gesicht des Bewohners sein.
+                Ein entsprechend universelles design ist gefordert.
+            \item[Backend CRUD implementierung Klingelanzeige]
+                Alle 4 Operationen, Create, Read, Update, Delete sind notwendig.
+                Es geht um die Speicherung eines einzelnen Textes xoder eines einzelnen Bildes, assoziiert mit einer spezifischen Wohnung, die sich auf alle zugehörigen Klingeln bezieht.
+            \item[Implementieren des Menüs zur Klingelanzeige in der App\footnote{Unter Annahme eines Cross-Platform-Frameworks, wie Flutter, dass keine 2 Apps entwickelt werden müssen}]
+                Es soll das Design umgesetzt und ans Backend angebunden werden.
+                Als Referenz dienen die beiden vorherigen Tickets.
+            \item[Implementieren der Klingelanzeige]
+                Es soll der Name oder das Bild aus dem Design angezeigt werden.
+                Die Daten können vom Backend bezogen werden.
+        \end{description}
     \item Als Wohnungsbesitzer möchte ich beim Klingeln eine Benachrichtigung erhalten.
-        \subitem Backend Push Service
-        \subitem Backend Klingeln CRUD
+        \begin{description}
+            \item[Backend Push Service] Es sollen Push Benachrichtigungen an alle Gerätetypen versendet werden können.
+                Da Android seinen alten Service nicht mehr supportet, ist hier Firebase Cloud Messaging die sinnvollste Option.
+                Entsprechend sollte diese API implementiert werden.
+            \item[Backend Klingeln CRUD] Hier reicht ein Create.
+                Der Endpoint soll aufgerufen werden, wenn auf eine Klingel gedrückt wird.
+        \end{description}
     \item Als Wohnungsbesitzer möchte ich erkennen können, von welchem Klingelsystem meine Benachrichtigung kommt.
-        \subitem Design Push Benachrichtigung
-        \subitem Pushnachricht Design umsetzen
+        \begin{description}
+            \item[Design Push Benachrichtigung] Es sollen die mobilen Push benachrichtigungen designed werden.
+                Dabei soll ein Alert ausgespielt werden und in dem Namen der Benachrichtigung der Name des entsprechenden Gerätes stehen.
+                Als Bild kann ein Bild der Kamera verwendet werden.
+            \item[Pushnachricht Design umsetzen] Die im obigen Design Ticket designte Push Nachricht soll versand werden, wenn auf die Klingel geklickt wird.
+        \end{description}
     \item Als Wohnungsbesitzer möchte ich über die Klingelbenachrichtigung die Freisprechanlage aufrufen können.
-        \subitem Deep-linking für Benachrichtigungen einbauen
+        \begin{description}
+            \item[Deep-linking für Benachrichtigungen einbauen] Die Navigation der App soll unter Android und iOS natives Deeplinking unterstützen.
+                Dafür muss die entsprechende Domain auch angepasst werden.
+        \end{description}
     \item Als Wohnungsbesitzer möchte ich die Tür meiner Wohnung von meinem Handy aus öffnen können, um den Klingelnden herein zulassen.
-        \subitem Türöffner Backendanbindung
-        \subitem Backend Türöffner CRUD
-        \subitem Tür öffnen Button designen
-        \subitem Tür öffnen Button in App einbauen (Backend Anbindung und Design umsetzen)
+        \begin{description}
+            \item[Türöffner Backendanbindung] Wird eine endsprechende FCM vom Backend erhalten, so soll die Tür hardwareseitig geöffnet werden.
+            \item[Backend Türöffner CRUD] Hier reicht ein Create.
+                Mittels FCM soll auch die Klingel--Hardware informiert werden.
+            \item[Tür öffnen Button designen] In der App, der Ansicht der Kamera, soll es einen Knopf zum öffnen der Tür geben.
+            \item[Tür öffnen Button in App einbauen] Backend Anbindung und Design aus vorherigen Tickets umsetzen.
+        \end{description}
     \item Als Wohnungsbesitzer möchte ich ein Live-Bild meiner Klingelanlage in der Apps ehen.
-        \subitem Backend Videostream implementieren
-        \subitem Backend SIP schnittstelle implementieren
-        \subitem Videoplayer Klingelanlage designen
-        \subitem Videoplayer für Videostreams nach design in Klingelanlage implementieren
-        \subitem Videoplayer App designen
-        \subitem Videoplayer für Videostreams nach design in App implementieren
-        \subitem Übersichtsseite \qq{Meine Klingelanlagen} designen
-        \subitem Übersichtsseite \qq{Meine Klingelanlagen} in der App implementieren
+        \begin{description}
+            \item[Backend Videostream implementieren] Es soll ein bidirektionaler Videostream implementiert werden.
+                Dabei soll von der App und von der Klingel--Hardware ein Stream gesendet werden, und der jeweils andere empfangen werden können.
+            \item[Backend SIP schnittstelle implementieren] Die Stream Funktion soll auch das SIP Protokoll unterstützen.
+                Hierfür soll es eine zweite Schnittstelle asl Wrapper für die, aus dem letzten Ticket geben.
+            \item[Videoplayer Klingelanlage designen] In der Klingel--Hardware soll es einen Videoplayer geben.
+                Die UI kann dabei aktiviert und deaktiviert (ausgeblendet) sein.
+                Der nutzer kann die UI nicht manuell aktivieren.
+                Eine Bildschirmübertragung soll empfangen, nicht aber gesendet, werden können.
+            \item[Videoplayer für Videostreams nach design in Klingelanlage implementieren] Das Design aus dem letzten Ticket soll implementiert und an das backend angebunden werden.
+                Gleichzeitig soll auch das Bild der Kamera an das backend angebunden werden.
+            \item[Videoplayer App designen] In der App soll ein Videoplayer eingebaut werden.
+                Dieser soll als PIP die eigene Kamera anzeigen (deaktivierbar in der UI) sowie das Bild der Klingel.
+                Dabei soll in der UI ein Mute, Bildschirm Teilen und Kamera ein/aus Button sein.
+            \item[Videoplayer für Videostreams nach design in App implementieren] Der Videoplayer aus dem vorherigen UI Ticket soll implementiert und an das Backend angebunden werden.
+                Dabei soll auch die Kamera an das Backend angebunden werden.
+            \item[Übersichtsseite \qq{Meine Klingelanlagen} designen] In einer Übersichtsseite sollen alle Klingelanlagen eines Nutzers aufgelistet werden.
+            \item[Übersichtsseite \qq{Meine Klingelanlagen} in der App implementieren] Das Design aus dem vorherigen Ticket soll implementiert und an das Backend angebunden werden.
+        \end{description}
     \item Als Hausverwalter möchte ich, für bis zu $n$ Tagen rückwirkend, die Kameradaten aller Klingelanlagen, der von mir verwalteten Häuser, einsehen, um sie, falls nötig, den Behörden aushändigen zu können.
     \item Als Hausverwalter möchte ich einstellen können, welcher Teil des Bildausschnittes der Kameras, der von mir verwalteten Häuser, öffentlicher Grund ist, woraufhin dieser Bereich ausgeblendet wird, um mit dem deutschen Recht konform zu sein.
     \item Als Handwerker möchte ich mittels der Klingelanlage Support zu der zugehörigen Anlage erhalten, um diese warten zu können.

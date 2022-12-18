@@ -1,0 +1,53 @@
+Für einen schnellen Releaseprozess sowie Arbeitsprozess in einem agilen Projekt, wie diesem, ist ein gutes CI/CD unerlässlich.
+Dies ist im Folgenden unter annahme bestehender Git Repositories auf einem selbst gehosteten Gitlab Ultimate Server für die neuen Module aufgeführt.
+
+\subsubsection{Branching Struktur}
+    \input{branching-struktur}
+
+\subsubsection{Deployment-Umgebungen}\label{subsubsec:deployment-umgebungen}
+    \input{deployment-umgebungen}
+
+\subsubsection{Pipelines}\label{subsubsec:pipelines}
+    \input{pipelines}
+
+\subsubsection{Beispiele}
+    In diesem Abschnitt wollen wir den gesamten Aufbau des hier beschriebenen CI/CD Aufbaus anhand einiger praktischer Beispiele, für ein leichtes Verständnis, noch ein Mal darstellen.
+
+
+    \begin{description}
+        \item[Vom Feature zum Release:] Es soll ein Feature \qq{foobar} erstellt werden, sowohl in der App, als auch in der Software für die Klingel--App.
+            Dieses Feature soll anschließend released werden.
+            \begin{enumerate}
+                \item Als erstes wird in der App die Branch \qq{feature/foobar} mit Upstream Develop erstellt.
+                \item Anschließend wird das Feature implementiert und commited.
+                \item Hat sich der Develop geändert, so wird die Branch auf diesem gerebased.
+                \item Für die Branch wird nun in GitLab eine Merge Request zum Develop gestellt.
+                \item Wenn nicht alle Tests und Lints durchlaufen, dann wird der Code korrigiert.
+                \item Anschließend folgt ein Team Review durch einen Kollegen
+                \item Gibt dieser sein OK, so wird die Merge Request gemerged.
+                \item Sind alle anderen Features auch bereit für den Release, so wird nun eine Merge Request in Staging gestellt.
+                \item Gibt das ganze (anwesende) Team sein OK, so wird die Pipeline gemerged;
+                    Die App wird auf dem Testing Track veröffentlicht
+                \item Da die App vorbereitet ist, kann nun auch die Entwicklung der Software für die Klingel--Hardware entwickelt werden.
+                    In der Praxis kann dies auch Parallel passieren.
+                    Hierzu wird auch in diesem Repository der Branch \qq{feature/foobar} mit Upstream Develop erstellt.
+                \item Auch hier wird das Feature zunächst entwickelt und committed, bevor eine Merge Request in Develop gestellt wird.
+                \item Anschließend folgen die Lints, Tests und das Team--Review.
+                \item Da Develop auch die Funktion des Staging Branches hat, ist die Version nun in Staging System und sowohl die App, als auch die Software für die Klingel--Hardware, können ausgiebig getestet werden.
+                \item Nun gibt es ein funktionierendes, getestetes System.
+                    Wenn der Markt es nun hergibt, als Entwickler, wenn das Management sein Go gibt, wird in beiden Repositories eine Merge Request in Main gestellt und anschließend nach einem finalen Go der Entwicklung gemerged.
+                    Damit ist die App in den Stores und auch die Hardware zeit sich die Updates vom FTP--Server.
+            \end{enumerate}
+        \item[Hotfix:] Unser Feature Foobar hatte leider einen Fehler in der App, der auf Faltbaren Geräten zu einem absturz der App führt.
+            Dieser soll schnellstmöglich behoben werden.
+            \begin{enumerate}
+                \item Zunächst wird ein Branch \qq{hotfix/foobar} im App--Repository erstellt.
+                \item In diesem wird der Bug nun behoben und committet.
+                \item Anschließend wird eine Merge Request zurück in Main gestellt.
+                \item Die Lints und Tests laufen in der Pipeline.
+                \item Danach folgt das Team--Review mit Zustimmung aller (anwesender) Mitglieder.
+                \item Ist die Analyse sowie das Review erfolgreich, so wird gemerged.
+                    Dadurch wird die Version hochgeladen und der Review Prozess der Stores gestartet.
+                \item Ist das Review der Stores erfolgreich, so wird die neue Version veröffentlicht.
+            \end{enumerate}
+    \end{description}
