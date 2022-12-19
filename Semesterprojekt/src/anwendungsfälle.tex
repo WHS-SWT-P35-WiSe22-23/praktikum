@@ -1,32 +1,36 @@
-Die Abbildungen 1 bis 4 sind UML-Anwendungsfalldiagramme und stellen die Anwendungsfälle nach den Szenarien dar.
+Die Abbildungen~\ref{fig:klingeln-bei-einem-mehrfamilienhaus} bis~\ref{fig:industrieanlage-reparieren} sind UML-Anwendungsfalldiagramme und stellen die Anwendungsfälle nach den Szenarien dar.
 Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in den Abbildungen) nochmal genau strukturiert erläutert.
 
 \begin{figure}[ht!]
+    \centering
     \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Klingeln bei einem Mehrfamilienhaus}
     \caption{Klingeln bei einem Mehrfamilienhaus Anwendungsfall}
     \label{fig:klingeln-bei-einem-mehrfamilienhaus}
 \end{figure}
 
 \begin{figure}[ht!]
-    \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Vandalismus.drawio}
+    \centering
+    \includegraphics[width=(\paperwidth-2in)/2]{../assets/img/UML-Anwendungsfalldiagramme-Vandalismus.drawio}
     \caption{Vandalismus Anwendungsfall}
     \label{fig:vandalismus}
 \end{figure}
 
 \begin{figure}[ht!]
+    \centering
     \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Industrieanlage reparieren.drawio}
     \caption{Industrieanlage reparieren Anwendungsfall}
     \label{fig:industrieanlage-reparieren}
 \end{figure}
 
 \begin{figure}[ht!]
+    \centering
     \includegraphics[width=\paperwidth-2in]{../assets/img/UML-Anwendungsfalldiagramme-Zimmerservice.drawio}
     \caption{Zimmerservice Anwendungsfall}
     \label{fig:zimmerservice}
 \end{figure}
 
 
-\paragraph{Klingel betätigen}
+\paragraph{\large{Klingel betätigen}}
     \begin{description}
         \item[Ziel:] Besucher möchte klingeln.
         \item[Beschreibung:] Klingel wird betätigt, um Kontakt zu Wohnungsbesitzer aufzunehmen.
@@ -36,7 +40,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Wohnungsbesitzer wird angerufen.
     \end{description}
 
-\paragraph{Anruf annehmen}
+\paragraph{\large{Anruf annehmen}}
     \begin{description}
         \item[Ziel:] Ein eingehender Anruf soll angenommen werden.
         \item[Beschreibung:] Indem der Benutzer auf die eingehende Benachrichtigung klickt, wird der Anruf angenommen.
@@ -47,7 +51,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Anruf wurde angenommen und Gespräch gestartet.
     \end{description}
 
-\paragraph{Anruf ablehnen}
+\paragraph{\large{Anruf ablehnen}}
     \begin{description}
         \item[Ziel:] Ein eingehender Anruf soll abgelehnt werden.
         \item[Beschreibung:] Indem der Benutzer die eingehende Benachritigung wegklickt, wird der Anruf abgelehnt.
@@ -58,7 +62,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Anruf wurde abgelehnt.
     \end{description}
 
-\paragraph{Anruf beenden}
+\paragraph{\large{Anruf beenden}}
     \begin{description}
         \item[Ziel:] Ein laufender Anruf soll beendet werden.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den Button zum Auflegen betätigt, kann der Anruf jederzeit beendet werden.
@@ -68,7 +72,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Anruf wurde beendet.
     \end{description}
 
-\paragraph{Anruf weiterleiten}
+\paragraph{\large{Anruf weiterleiten}}
     \begin{description}
         \item[Ziel:] Ein eingehender Anruf soll an einen ausgewählten Kontakt weitergeleitet werden.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den Button zum Weiterleiten betätigt, kann der eingehende Anruf an einen verfügbaren Kontakt weitergeleitet werden.
@@ -80,7 +84,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Anruf wurde an ausgewählten Kontakt weitergeleitet.
     \end{description}
 
-\paragraph{Live-Bild der Kamera anschalten}
+\paragraph{\large{Live-Bild der Kamera anschalten}}
     \begin{description}
         \item[Ziel:] Das Live-Bild der Kamera an der Eingangstür soll angeschaltet werden.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Live-Bild angeschaltet.
@@ -91,7 +95,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Live-Bild wurde für den Wohnungsbesitzer angeschaltet.
     \end{description}
 
-\paragraph{Live-Bild der Kamera ausschalten}
+\paragraph{\large{Live-Bild der Kamera ausschalten}}
     \begin{description}
         \item[Ziel:] Das Live-Bild der Kamera an der Eingangstür soll ausgeschaltet werden.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Live-Bild ausgeschaltet.
@@ -102,7 +106,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Live-Bild wurde für den Wohnungsbesitzer ausgeschaltet.
     \end{description}
 
-\paragraph{Automatikschloss der Tür aufschließen}
+\paragraph{\large{Automatikschloss der Tür aufschließen}}
     \begin{description}
         \item[Ziel:] Das Automatikschloss der Eingangstür soll aufgeschlossen werden, um den Besucher ins Gebäude zu lassen.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Automatikschloss aufgeschlossen.
@@ -112,7 +116,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Das Automatikschloss der Eingangstür wurde aufgeschlossen.
     \end{description}
 
-\paragraph{Automatikschloss der Tür zuschließen}
+\paragraph{\large{Automatikschloss der Tür zuschließen}}
     \begin{description}
         \item[Ziel:] Das Automatikschloss der Eingangstür soll zugeschlossen werden.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Automatikschloss zugeschlossen.
@@ -122,7 +126,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Das Automatikschloss der Eingangstür wurde zugeschlossen.
     \end{description}
 
-\paragraph{Kontakt suchen und auswählen}
+\paragraph{\large{Kontakt suchen und auswählen}}
     \begin{description}
         \item[Ziel:] Der Benutzer hat einen gesuchten Kontakt ausgewählt, wenn es ihn gibt.
         \item[Beschreibung:] Über eine Liste in der Visualisierung, eventuell auch Favoritenliste, kann der Benutzer einen Kontakt auswählen.
@@ -133,7 +137,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Keine oder ein Kontakt wurde ausgewählt und kann angerufen werden.
     \end{description}
 
-\paragraph{Kontakt anrufen}
+\paragraph{\large{Kontakt anrufen}}
     \begin{description}
         \item[Ziel:] Der Benutzer startet einen Anruf mit dem ausgewählten Kontakt.
         \item[Beschreibung:] Hat der Benutzer einen Kontakt ausgewählt, kann er diesen über einen Button anrufen.
@@ -143,7 +147,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Ein Anruf mit Kontakt wurde gestartet.
     \end{description}
 
-\paragraph{Bildschirmfreigabe starten}
+\paragraph{\large{Bildschirmfreigabe starten}}
     \begin{description}
         \item[Ziel:] Die Bildschirmfreigabe soll gestartet werden.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird sein Bildschirm mit dem anderen Teilnehmer des Anrufs geteilt.
@@ -154,7 +158,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Die Bildschirmfreigabe wurde gestartet.
     \end{description}
 
-\paragraph{Bildschirmfreigabe stoppen}
+\paragraph{\large{Bildschirmfreigabe stoppen}}
     \begin{description}
         \item[Ziel:] Die Bildschirmfreigabe soll gestoppt werden.
         \item[Beschreibung:] Indem der Benutzer in der Visualisierung den entsprechenden Button betätigt, wird das Teilen seines Bildschirms mit dem anderen Teilnehmer des Anrufs gestoppt.
@@ -165,7 +169,7 @@ Außerdem wird jeder Anwendungsfall (ein paar Anwendungsfälle doppeln sich in d
         \item[Nachbedingungen:] Die Bildschirmfreigabe wurde gestoppt.
     \end{description}
 
-\paragraph{Aufgezeichnetes Videomaterial einsehen}
+\paragraph{\large{Aufgezeichnetes Videomaterial einsehen}}
     \begin{description}
         \item[Ziel:] Aufgezeichnetes Videomaterial, das nicht älter als eine Woche ist, soll eingesehen werden.
         \item[Beschreibung] Über die Visualisierung kann der Benutzer, über eine Liste, die Kamera auswählen, von der er das aufgezeichnete Videomaterial einsehen möchte.
