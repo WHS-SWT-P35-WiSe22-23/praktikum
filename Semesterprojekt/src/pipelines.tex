@@ -1,11 +1,11 @@
 Mit dem von uns angenommenen Ultimate Plan von GitLab ist es möglich, sogenannte \qq{Merged results pipelines} zu erstellen.
 Die Besonderheit dieser Pipelines ist, dass sie gegen einen virtuellen Commit laufen, der den Zustand der Branch darstellt, als wäre sie bereits gemerged.
 So ist es möglich, das Ergebnis einer Merge Request zu analysieren, bevor wirklich gemerged wird und es entsprechend als Bedingung für einen Merge verwenden.
-Auf grund dieser Besonderheiten soll diese Form der Pipelines für unser CI genutzt werden.
+Aufgrund dieser Besonderheiten soll diese Form der Pipelines für unser CI genutzt werden.
 
 \begin{description}
     \item[Mergen in Develop:]
-        Beim mergen in Develop muss im ersten Schritt Conventional Commits überprüft werden.
+        Beim Mergen in Develop muss im ersten Schritt Conventional Commits überprüft werden.
         Dazu dient ein entsprechendes npm Package als CLI Tool.
         Anschließend folgt die statische Codeanalyse mit einem Linter.
         Danach wird die App kompiliert und das Kompilat wird für die weitere Verwendung zwischengespeichert.
@@ -27,7 +27,7 @@ Auf grund dieser Besonderheiten soll diese Form der Pipelines für unser CI genu
 
 
     \item[Develop:]
-        In den seltenen Fällen, wenn wirklich in Develop committet wird, dann sollen dieselben Schritte wie beim mergen in Develop ausgeführt werden.
+        In den seltenen Fällen, wenn wirklich in Develop committet wird, dann sollen dieselben Schritte wie beim Mergen in Develop ausgeführt werden.
         Ist Develop die Staging Branch, so soll auch alles aus Staging ausgeführt werden.
 
     \item[Staging:]

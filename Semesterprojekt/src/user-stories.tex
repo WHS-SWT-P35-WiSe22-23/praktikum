@@ -1,17 +1,17 @@
 \begin{itemize}
     \item Als Wohnungsbesitzer möchte ich entscheiden, ob nur meine Wohnung, oder auch mein Name auf der Klingel erscheint, um der Herr meiner Daten zu sein.
         \begin{description}
-            \item[Designen der Klingelanzeige (Text und/oder Bild)] Im beispiel der Speisekarte des Zimmerservices soll ein QR Code als Bild einstellbar sein.
+            \item[Designen der Klingelanzeige (Text und/oder Bild)] Im Beispiel der Speisekarte des Zimmerservices soll ein QR Code als Bild einstellbar sein.
                 Das Feature bezieht sich also nicht nur auf den Namen als Text.
                 Der Nutzer soll ein Bild oder einen Text auswählen können.
                 Dies ist keine feature flag, es kann auch gerne das Gesicht des Bewohners sein.
-                Ein entsprechend universelles design ist gefordert.
+                Ein entsprechend universelles Design ist gefordert.
             \item[Designen des Menüs zur Klingelanzeige in der App (Texteingabe)]
                 Das Feature bezieht sich also nicht nur auf den Namen als Text.
                 Der Nutzer soll ein Bild oder einen Text auswählen können.
                 Dies ist keine feature flag, es kann auch gerne das Gesicht des Bewohners sein.
                 Ein entsprechend universelles design ist gefordert.
-            \item[Backend CRUD implementierung Klingelanzeige]
+            \item[Backend CRUD Implementierung Klingelanzeige]
                 Alle 4 Operationen, Create, Read, Update, Delete sind notwendig.
                 Es geht um die Speicherung eines einzelnen Textes xoder eines einzelnen Bildes, assoziiert mit einer spezifischen Wohnung, die sich auf alle zugehörigen Klingeln bezieht.
             \item[Implementieren des Menüs zur Klingelanzeige in der App\footnote{Unter Annahme eines Cross-Platform-Frameworks, wie Flutter, dass keine 2 Apps entwickelt werden müssen}]
@@ -31,10 +31,10 @@
         \end{description}
     \item Als Wohnungsbesitzer möchte ich erkennen können, von welchem Klingelsystem meine Benachrichtigung kommt.
         \begin{description}
-            \item[Design Push Benachrichtigung] Es sollen die mobilen Push benachrichtigungen designed werden.
+            \item[Design Push Benachrichtigung] Es sollen die mobilen Push-Benachrichtigungen designed werden.
                 Dabei soll ein Alert ausgespielt werden und in dem Namen der Benachrichtigung der Name des entsprechenden Gerätes stehen.
                 Als Bild kann ein Bild der Kamera verwendet werden.
-            \item[Pushnachricht Design umsetzen] Die im obigen Design Ticket designte Push Nachricht soll versand werden, wenn auf die Klingel geklickt wird.
+            \item[Push-Benachrichtigung Design umsetzen] Die im obigen Design Ticket designte Push Nachricht soll versand werden, wenn auf die Klingel geklickt wird.
         \end{description}
     \item Als Wohnungsbesitzer möchte ich über die Klingelbenachrichtigung die Freisprechanlage aufrufen können.
         \begin{description}
@@ -53,26 +53,26 @@
         \begin{description}
             \item[Backend Videostream implementieren] Es soll ein bidirektionaler Videostream implementiert werden.
                 Dabei soll von der App und von der Klingel--Hardware ein Stream gesendet werden, und der jeweils andere empfangen werden können.
-            \item[Backend SIP schnittstelle implementieren] Die Stream Funktion soll auch das SIP Protokoll unterstützen.
+            \item[Backend SIP-Schnittstelle implementieren] Die Stream Funktion soll auch das SIP Protokoll unterstützen.
                 Hierfür soll es eine zweite Schnittstelle asl Wrapper für die, aus dem letzten Ticket geben.
             \item[Videoplayer Klingelanlage designen] In der Klingel--Hardware soll es einen Videoplayer geben.
                 Die UI kann dabei aktiviert und deaktiviert (ausgeblendet) sein.
-                Der nutzer kann die UI nicht manuell aktivieren.
+                Der Benutzer kann die UI nicht manuell aktivieren.
                 Eine Bildschirmübertragung soll empfangen, nicht aber gesendet, werden können.
-            \item[Videoplayer für Videostreams nach design in Klingelanlage implementieren] Das Design aus dem letzten Ticket soll implementiert und an das backend angebunden werden.
+            \item[Videoplayer für Videostreams nach design in Klingelanlage implementieren] Das Design aus dem letzten Ticket soll implementiert und an das Backend angebunden werden.
                 Gleichzeitig soll auch das Bild der Kamera an das backend angebunden werden.
             \item[Videoplayer App designen] In der App soll ein Videoplayer eingebaut werden.
                 Dieser soll als PIP die eigene Kamera anzeigen (deaktivierbar in der UI) sowie das Bild der Klingel.
                 Dabei soll in der UI ein Mute, Bildschirm Teilen und Kamera ein/aus Button sein.
-            \item[Videoplayer für Videostreams nach design in App implementieren] Der Videoplayer aus dem vorherigen UI Ticket soll implementiert und an das Backend angebunden werden.
+            \item[Videoplayer für Videostreams nach Design in App implementieren] Der Videoplayer aus dem vorherigen UI Ticket soll implementiert und an das Backend angebunden werden.
                 Dabei soll auch die Kamera an das Backend angebunden werden.
             \item[Übersichtsseite \qq{Meine Klingelanlagen} designen] In einer Übersichtsseite sollen alle Klingelanlagen eines Nutzers aufgelistet werden.
             \item[Übersichtsseite \qq{Meine Klingelanlagen} in der App implementieren] Das Design aus dem vorherigen Ticket soll implementiert und an das Backend angebunden werden.
         \end{description}
     \item Als Hausverwalter möchte ich, für bis zu $n$ Tagen rückwirkend, die Kameradaten aller Klingelanlagen, der von mir verwalteten Häuser, einsehen, um sie, falls nötig, den Behörden aushändigen zu können.
     \item Als Hausverwalter möchte ich einstellen können, welcher Teil des Bildausschnittes der Kameras, der von mir verwalteten Häuser, öffentlicher Grund ist, woraufhin dieser Bereich ausgeblendet wird, um mit dem deutschen Recht konform zu sein.
-    \item Als Handwerker möchte ich mittels der Klingelanlage Support zu der zugehörigen Anlage erhalten, um diese warten zu können.
-    \item Als Support für eine Technische Anlage möchte ich eine Supportkette einrichten, so dass verschiedene Personen in einer Prioritätenliste versucht werden zu erreichen, wenn sie gerade dienst haben, um einen zuverlässigen Support gewährleisten zu können.
+    \item Als Handwerker möchte ich mittels der Klingelanlage Support zu der zugehörigen Anlage erhalten, um diese Warten zu können.
+    \item Als Support für eine technische Anlage möchte ich eine Supportkette einrichten, so dass verschiedene Personen in einer Prioritätenliste versucht werden zu erreichen, wenn sie gerade dienst haben, um einen zuverlässigen Support gewährleisten zu können.
     \item Als Gast eines Hotels möchte ich mit der Klingelanlage den Zimmerservice sowie die Rezeption telefonisch erreichen können.
     \item Als Gast eines Hotels möchte ich andere Hotelbewohner mit der Klingelanlage unter verwendung der Zimmernummer Telefonisch erreichen können.
 \end{itemize}

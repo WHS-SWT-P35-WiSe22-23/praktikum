@@ -1,18 +1,18 @@
 Die Entscheidung für Staging Umgebungen ist für die App ziemlich einfach.
 Hier ist vieles durch den Aufbau der Stores (AppStore, PlayStore, AppGallery, etc.) vorgegeben.
 Anders ist es bei Software für eigene Hardware.
-Hier gild es kreative zu werden.
+Hier gilt es kreativer zu werden.
 
 
 \paragraph{\large{Der}} Aufbau der Stores ist in vielen Punkten ähnlich:
     Ein Build wird in einem Portal hochgeladen, und kann dann verschiedenen Tracks zugewiesen werden.
-    Verschiedene Gruppen von Nutzern, Testern und Entwicklern haben anschließend zugriff auf ihnen zugewiesene Tracks.
+    Verschiedene Gruppen von Nutzern, Testern und Entwicklern haben anschließend Zugriff auf ihnen zugewiesenen Tracks.
     iOS hat zwei Tracks, TestFlight for Tester und AppStore für öffentliche Releases.
     Android hingegen bietet Tracks für offene-- und geschlossene--Tests sowie öffentliche Releases.
     Ein Build kann dabei, auch im Nachhinein, mehreren Tracks zugewiesen werden.
 
 
-    Unter der Annahme, dass zur laufzeit die URI des Backends angegeben werden muss, und nicht beim Kompilieren, kann auf sogenannte Flavourisierung verzichtet werden.
+    Unter der Annahme, dass zur Laufzeit die URI des Backends angegeben werden muss, und nicht beim Kompilieren, kann auf sogenannte Flavourisierung verzichtet werden.
     Das heißt, dass \qq{Build once --- Deploy many} möglich ist.
     Entsprechend wird nur in Staging ein Build hochgeladen, da ein erneutes Hochladen in Main redundant wäre.
     Stadtessen wird der vorhandene Build einem neuen Track zugewiesen.
